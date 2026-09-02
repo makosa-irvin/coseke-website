@@ -128,7 +128,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
       <CtaBand
         heading={`Want a result like ${study.client}'s?`}
         body="Tell us about your process and volumes, and we'll scope what it would take to get there."
-        primaryLabel="Request a demo"
+        primaryLabel="Discuss a project"
         primaryHref="/contact?type=demo"
       />
     </>

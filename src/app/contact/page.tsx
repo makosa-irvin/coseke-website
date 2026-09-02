@@ -22,7 +22,7 @@ export default async function ContactPage({ searchParams }: Props) {
       <section className="border-line bg-indigo-deep text-paper border-b">
         <Container className="py-16 lg:py-20">
           <h1 className="font-display max-w-xl text-4xl font-semibold sm:text-5xl">
-            {isDemo ? "Request a demo" : "Talk to us"}
+            {isDemo ? "Discuss your project" : "Talk to us"}
           </h1>
           <p className="text-paper/70 mt-5 max-w-xl">
             {isDemo

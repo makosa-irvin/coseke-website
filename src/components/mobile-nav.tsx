@@ -97,7 +97,7 @@ export function MobileNav() {
               onClick={close}
               className="text-brass-light py-4 text-lg font-medium"
             >
-              Request a demo
+              Discuss a project
             </Link>
           </nav>
         </div>

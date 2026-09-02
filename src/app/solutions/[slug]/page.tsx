@@ -139,7 +139,7 @@ export default async function SolutionDetailPage({ params }: Props) {
       <CtaBand
         heading={`Ready to talk about ${solution.tabLabel}?`}
         body="Tell us about your current process and volumes, and we'll scope what an implementation would look like."
-        primaryLabel="Request a demo"
+        primaryLabel="Discuss a project"
         primaryHref={`/contact?type=demo&interest=${encodeURIComponent(solution.tabLabel)}`}
       />
     </>

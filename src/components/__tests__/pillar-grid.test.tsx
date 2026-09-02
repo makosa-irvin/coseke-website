@@ -7,7 +7,7 @@ describe("PillarGrid", () => {
   it("renders a link for every solution category", () => {
     render(<PillarGrid />);
     for (const category of solutionCategories) {
-      expect(screen.getByRole("heading", { name: category.name })).toBeInTheDocument();
+      expect(screen.getByRole("heading", { name: category.shortLabel })).toBeInTheDocument();
     }
   });
 
@@ -15,7 +15,7 @@ describe("PillarGrid", () => {
     render(<PillarGrid />);
     for (const category of solutionCategories) {
       const first = getSolutionsByCategory(category.id)[0];
-      const link = screen.getByRole("heading", { name: category.name }).closest("a");
+      const link = screen.getByRole("heading", { name: category.shortLabel }).closest("a");
       expect(link).toHaveAttribute("href", `/solutions/${first.slug}`);
     }
   });

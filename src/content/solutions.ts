@@ -1,6 +1,8 @@
 export type SolutionCategory = {
   id: string;
   name: string;
+  /** Friendlier, problem-oriented label for homepage scanning contexts (e.g. "Information & records" vs the formal "Document & Records Management" used in navigation). */
+  shortLabel: string;
   description: string;
 };
 
@@ -8,21 +10,27 @@ export const solutionCategories: SolutionCategory[] = [
   {
     id: "records",
     name: "Document & Records Management",
-    description: "Capture, index, and govern the documents your organization already has.",
+    shortLabel: "Information & records",
+    description:
+      "Capture, digitize, store, search, and govern the information your institution depends on.",
   },
   {
     id: "governance",
     name: "Governance & Meetings",
-    description: "Run board, committee, and shareholder meetings without the paper.",
+    shortLabel: "Governance & meetings",
+    description: "Run boards, committees, AGMs, decisions, and approvals securely from anywhere.",
   },
   {
     id: "systems",
     name: "Business Systems",
-    description: "Connect operations and reporting into systems people actually use.",
+    shortLabel: "Business systems",
+    description:
+      "Connect operations, finance, reporting, and decisions through systems people use.",
   },
   {
     id: "infrastructure",
     name: "Infrastructure & Support",
+    shortLabel: "Infrastructure & support",
     description: "The hardware, integration, and training work underneath everything above.",
   },
 ];

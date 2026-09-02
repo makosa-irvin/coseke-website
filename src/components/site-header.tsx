@@ -3,12 +3,14 @@ import { navigation } from "@/content/site";
 import { Container } from "@/components/ui/container";
 import { MobileNav } from "@/components/mobile-nav";
 import { SolutionsMegaMenu } from "@/components/solutions-mega-menu";
+import { TopUtilityBar } from "@/components/top-utility-bar";
 
 export function SiteHeader() {
   const restNav = navigation.primary.filter((item) => item.label !== "Solutions");
 
   return (
     <header className="border-line-dark bg-indigo-deep text-paper relative z-50 border-b">
+      <TopUtilityBar />
       <Container className="flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <span aria-hidden className="border-clay-soft/70 flex h-6 w-6 shrink-0 flex-col border">
@@ -42,7 +44,7 @@ export function SiteHeader() {
             href="/contact?type=demo"
             className="border-clay-soft/70 text-paper hover:border-clay hover:bg-clay border px-4 py-2 text-sm font-medium transition-colors"
           >
-            Request a demo
+            Discuss a project
           </Link>
         </div>
 
