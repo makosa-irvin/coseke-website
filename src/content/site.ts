@@ -7,6 +7,7 @@ export const siteConfig = {
     "Coseke is a Pan-African information and content management specialist. Since 1990 we've helped government and private-sector organizations capture, manage, share, and preserve their records, replacing paper backlogs with searchable, governed systems.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.coseke.com",
   motto: "Quality means no compromise",
+  supportUrl: "https://support.coseke.com",
 };
 
 export const stats = [
@@ -64,6 +65,29 @@ export const partners = {
 
 export const accreditations = ["ISO certified", "NITA accredited", "SGS certified"];
 
+export type ProcessStep = { step: string; title: string; description: string };
+
+export const engagementSteps: ProcessStep[] = [
+  {
+    step: "01",
+    title: "Understand the work",
+    description:
+      "We map the records, decisions, people, and controls around the process, not just the software request.",
+  },
+  {
+    step: "02",
+    title: "Design around reality",
+    description:
+      "The solution is configured for your volumes, policies, integrations, and operating environment.",
+  },
+  {
+    step: "03",
+    title: "Adopt and improve",
+    description:
+      "Regional implementation, role-based training, and ongoing support keep the system useful after go-live.",
+  },
+];
+
 export const clients = [
   { name: "Kenya Airports Authority", url: "https://www.kaa.go.ke" },
   { name: "Kenya Ports Authority Pension Scheme", url: "https://kpapension.co.ke" },
@@ -77,6 +101,7 @@ export const navigation = {
     { label: "Solutions", href: "/solutions" },
     { label: "Industries", href: "/industries" },
     { label: "Case Studies", href: "/case-studies" },
+    { label: "Blog", href: "/blog" },
     { label: "About", href: "/about" },
     { label: "Careers", href: "/careers" },
     { label: "Contact", href: "/contact" },

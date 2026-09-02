@@ -1,20 +1,20 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
-import { ProductPanelMockup } from "@/components/product-panel-mockup";
+import { CapabilitySummaryCard } from "@/components/capability-summary-card";
 import { PillarGrid } from "@/components/pillar-grid";
 import { StatRow } from "@/components/stat-row";
+import { TrustSection } from "@/components/trust-section";
 import { SolutionsExplorer } from "@/components/solutions-explorer";
+import { BeforeAfterProof } from "@/components/before-after-proof";
+import { ProcessSteps } from "@/components/process-steps";
 import { PartnerMarks } from "@/components/partner-marks";
-import { TestimonialBlock } from "@/components/testimonial-block";
-import { ClientStrip } from "@/components/client-strip";
 import { CtaBand } from "@/components/cta-band";
 import { industries } from "@/content/industries";
 import { caseStudies } from "@/content/case-studies";
-import { solutions } from "@/content/solutions";
 
 export default function HomePage() {
-  const featuredCaseStudies = caseStudies.filter((c) => c.quote);
+  const featuredCaseStudy = caseStudies.find((c) => c.before && c.after && c.quote);
 
   return (
     <>
@@ -22,54 +22,60 @@ export default function HomePage() {
         <Container className="grid gap-12 py-16 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:py-24">
           <div>
             <p className="text-brass-light text-sm">
-              Enterprise systems for East Africa&apos;s public and private sector, since 1990
+              East Africa&apos;s information management partner
             </p>
             <h1 className="font-display mt-4 max-w-xl text-4xl leading-[1.05] font-semibold sm:text-5xl">
-              The systems behind how East African institutions run.
+              Build a more connected, efficient institution.
             </h1>
             <p className="text-paper/70 mt-6 max-w-lg">
-              Records, governance, business systems, and the infrastructure underneath — Coseke
-              designs, builds, and supports all four for government and private-sector organizations
-              across the region, from one accountable team.
+              Coseke designs, implements, and supports information management, digital governance,
+              business systems, and ICT infrastructure &mdash; from one experienced regional team.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/contact?type=demo"
                 className="bg-clay text-paper hover:bg-clay-soft px-6 py-3 text-sm font-medium transition-colors"
               >
-                Request a demo
+                Discuss your project
               </Link>
               <Link
-                href="/solutions"
+                href="/case-studies"
                 className="border-paper/40 text-paper hover:border-paper flex items-center gap-1 border px-6 py-3 text-sm font-medium transition-colors"
               >
-                See all {solutions.length} solutions
+                See client outcomes
               </Link>
-            </div>
-            <div className="mt-10">
-              <p className="text-paper/50 text-xs">Trusted by organizations including</p>
-              <div className="mt-3">
-                <ClientStrip />
-              </div>
             </div>
           </div>
 
           <div className="flex justify-center lg:justify-end">
-            <ProductPanelMockup />
+            <CapabilitySummaryCard />
           </div>
+        </Container>
+      </section>
+
+      <section className="border-line border-b">
+        <Container className="py-0">
+          <StatRow />
+        </Container>
+      </section>
+
+      <section className="border-line border-b">
+        <Container>
+          <TrustSection />
         </Container>
       </section>
 
       <section className="py-20">
         <Container>
           <div className="max-w-2xl">
+            <p className="text-clay mb-3 text-sm font-medium">Start with the bottleneck</p>
             <h2 className="font-display text-indigo text-3xl font-semibold sm:text-4xl">
-              Four areas. One accountable team.
+              Where is work getting stuck?
             </h2>
             <p className="text-ink-soft mt-4">
-              We don&apos;t hand you off between a software vendor, a scanning bureau, and a
-              hardware reseller. Whichever of these you start with, Coseke scopes, builds, and
-              supports it end to end.
+              You don&apos;t need to arrive with a product name. Start with the process slowing your
+              team down, the risk keeping you awake, or the information you can&apos;t find fast
+              enough.
             </p>
           </div>
           <div className="mt-10">
@@ -78,13 +84,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="border-line border-y">
-        <Container className="py-0">
-          <StatRow />
-        </Container>
-      </section>
-
-      <section className="py-20">
+      <section className="border-line bg-paper-dim border-y py-20">
         <Container>
           <div className="max-w-2xl">
             <h2 className="font-display text-indigo text-3xl font-semibold sm:text-4xl">
@@ -101,7 +101,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="border-line bg-paper-dim border-y py-20">
+      <section className="py-20">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr]">
             <div>
@@ -132,47 +132,66 @@ export default function HomePage() {
         </Container>
       </section>
 
+      {featuredCaseStudy ? (
+        <section className="bg-indigo-deep py-20">
+          <Container>
+            <p className="text-brass-light mb-3 text-sm font-medium">Proof in practice</p>
+            <h2 className="font-display text-paper mb-10 max-w-xl text-3xl font-semibold sm:text-4xl">
+              From archive shelves to answers in seconds.
+            </h2>
+            <BeforeAfterProof caseStudy={featuredCaseStudy} />
+          </Container>
+        </section>
+      ) : null}
+
       <section className="py-20">
         <Container>
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <h2 className="font-display text-indigo text-3xl font-semibold">In their words</h2>
-            <Link
-              href="/case-studies"
-              className="text-indigo hover:text-clay inline-flex items-center gap-1 text-sm font-medium"
-            >
-              All case studies
-              <ArrowUpRight size={16} />
-            </Link>
+          <div className="max-w-2xl">
+            <p className="text-clay mb-3 text-sm font-medium">One accountable partner</p>
+            <h2 className="font-display text-indigo text-3xl font-semibold sm:text-4xl">
+              Technology only works when it fits the institution around it.
+            </h2>
+            <p className="text-ink-soft mt-4">
+              Coseke brings process discovery, platforms, infrastructure, implementation, training,
+              and regional support into one delivery relationship.
+            </p>
           </div>
-          <div className="mt-10 grid gap-12 lg:grid-cols-2">
-            {featuredCaseStudies.map((study) => (
-              <TestimonialBlock key={study.slug} caseStudy={study} />
-            ))}
+          <div className="mt-12">
+            <ProcessSteps />
           </div>
         </Container>
       </section>
 
       <section className="border-line bg-paper-dim border-t py-20">
         <Container>
-          <h2 className="font-display text-indigo text-2xl font-semibold">
-            Delivered on platforms your team can already get support for
-          </h2>
-          <p className="text-ink-soft mt-3 max-w-2xl">
-            We build on established, widely supported technology rather than closed, proprietary
-            tools, so you&apos;re never the only organization running it.
-          </p>
-          <div className="mt-8">
+          <div className="grid gap-10 lg:grid-cols-[1fr_2fr]">
+            <div>
+              <h2 className="font-display text-indigo text-xl font-semibold">
+                Regional teams, global platforms
+              </h2>
+              <p className="text-ink-soft mt-3 text-sm">
+                Local teams across East Africa implement and support established technology your IT
+                and procurement teams can stand behind.
+              </p>
+              <Link
+                href="/about"
+                className="text-indigo hover:text-clay mt-4 inline-flex items-center gap-1 text-sm font-medium"
+              >
+                Why Coseke
+                <ArrowUpRight size={16} />
+              </Link>
+            </div>
             <PartnerMarks />
           </div>
         </Container>
       </section>
 
       <CtaBand
-        heading="Tell us where to start."
-        body="Most clients begin with one of the four areas above and expand from there. We're glad to talk through any of them, or you can download a short overview first."
-        primaryLabel="Request a demo"
+        heading="Bring us the information bottleneck. We'll help map the way through it."
+        body="Tell us what's slowing your team down and get a practical conversation with a regional solutions specialist."
+        primaryLabel="Discuss your project"
         primaryHref="/contact?type=demo"
-        secondaryLabel="Download brochure"
+        secondaryLabel="Download overview"
         secondaryHref="/downloads/coseke-company-overview.pdf"
       />
     </>

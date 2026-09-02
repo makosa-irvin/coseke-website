@@ -3,10 +3,10 @@ import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { CtaBand } from "@/components/cta-band";
 import { StatRow } from "@/components/stat-row";
-import { Photo } from "@/components/photo";
-import { TeamPhotoFallback } from "@/components/illustrations/team-photo-fallback";
-import { RegionMapIllustration } from "@/components/illustrations/region-map-illustration";
 import { AccreditationBadges } from "@/components/accreditation-badges";
+import { RegionMapIllustration } from "@/components/illustrations/region-map-illustration";
+import { RegionalTeams } from "@/components/regional-teams";
+import { LeadershipGrid } from "@/components/leadership-grid";
 import { values } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -69,14 +69,8 @@ export default function AboutPage() {
       </section>
 
       <section className="py-16">
-        <Container className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
-          <Photo
-            src="/images/about-team.jpg"
-            alt="The Coseke team"
-            fallback={<TeamPhotoFallback />}
-            className="border-line h-72 w-full border object-cover lg:h-96"
-          />
-          <div>
+        <Container>
+          <div className="max-w-2xl">
             <h2 className="font-display text-indigo text-3xl font-semibold">
               A regional team, not a reseller with a local number
             </h2>
@@ -121,22 +115,42 @@ export default function AboutPage() {
       </section>
 
       <section className="border-line bg-paper-dim border-t py-16">
-        <Container className="grid gap-10 lg:grid-cols-2 lg:items-center">
-          <div>
-            <h2 className="font-display text-indigo text-3xl font-semibold">Where we work</h2>
-            <p className="text-ink-soft mt-4 max-w-md">
-              Four offices across four countries, run as one regional team rather than franchised
-              branches.
-            </p>
-            <Link
-              href="/contact"
-              className="text-indigo hover:text-clay mt-6 inline-block text-sm font-medium"
-            >
-              Full office directory
-            </Link>
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+            <div>
+              <h2 className="font-display text-indigo text-3xl font-semibold">Where we work</h2>
+              <p className="text-ink-soft mt-4 max-w-md">
+                Four offices across four countries, run as one regional team rather than franchised
+                branches.
+              </p>
+              <Link
+                href="/contact"
+                className="text-indigo hover:text-clay mt-6 inline-block text-sm font-medium"
+              >
+                Full office directory
+              </Link>
+            </div>
+            <div className="flex justify-center lg:justify-end">
+              <RegionMapIllustration />
+            </div>
           </div>
-          <div className="flex justify-center lg:justify-end">
-            <RegionMapIllustration />
+          <div className="mt-12">
+            <RegionalTeams />
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16">
+        <Container>
+          <div className="max-w-2xl">
+            <h2 className="font-display text-indigo text-3xl font-semibold">Leadership</h2>
+            <p className="text-ink-soft mt-4">
+              Each of our four solution areas is led by a practice lead accountable for delivery in
+              that area, region-wide.
+            </p>
+          </div>
+          <div className="mt-10">
+            <LeadershipGrid />
           </div>
         </Container>
       </section>

@@ -9,6 +9,9 @@ export type CaseStudy = {
   result: string;
   quote?: { text: string; attribution: string };
   solutionSlugs: string[];
+  /** Short before/after bullet pairs for the homepage proof section. Only populated for the featured case study — keep grounded in the actual problem/result text above, not exaggerated. */
+  before?: string[];
+  after?: string[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -30,6 +33,16 @@ export const caseStudies: CaseStudy[] = [
       attribution: "Kenya Airports Authority",
     },
     solutionSlugs: ["digitization", "edrms"],
+    before: [
+      "Manual file retrieval",
+      "Records scattered across storage",
+      "Slow response to record requests",
+    ],
+    after: [
+      "Search and retrieval in seconds",
+      "Document integrity preserved",
+      "Built to scale across departments",
+    ],
   },
   {
     slug: "kenya-ports-authority-pension",
