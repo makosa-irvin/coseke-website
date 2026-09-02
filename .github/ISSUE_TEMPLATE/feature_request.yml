@@ -1,0 +1,22 @@
+name: Feature or content request
+description: Request a new page, section, or content change
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: request
+    attributes:
+      label: What would you like added or changed?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does this matter?
+      description: Who is this for, and what problem does it solve?
+    validations:
+      required: true
+  - type: textarea
+    id: content
+    attributes:
+      label: Source content (if any)
+      description: Paste or link the copy, data, or assets this depends on.

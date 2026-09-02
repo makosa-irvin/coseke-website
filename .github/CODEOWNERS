@@ -1,0 +1,4 @@
+# These owners are requested for review on every pull request by default.
+# Replace with real GitHub usernames or teams once the repo is transferred
+# into the Coseke GitHub organization.
+* @coseke/web-team

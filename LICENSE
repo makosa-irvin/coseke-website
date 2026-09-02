@@ -1,0 +1,14 @@
+Copyright (c) 2026 Coseke Limited. All rights reserved.
+
+This repository and its contents (source code, design, and copy) are the
+proprietary property of Coseke Limited. No part of this repository may be
+copied, modified, distributed, or used outside of work authorized by Coseke
+Limited without prior written permission.
+
+---
+
+Note for whoever maintains this repo: this proprietary notice is the
+sensible default for a company's own marketing site. If Coseke ever wants
+to open-source parts of this codebase (e.g. shared components), replace
+this file with the license of your choice (MIT and Apache-2.0 are common
+choices) and update the `license` field in package.json to match.

@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  /* Core palette — grounded in paper, ink and the region, not a default SaaS kit */
+  --color-paper: #f2f3ee;
+  --color-paper-dim: #e8e9e2;
+  --color-ink: #10181f;
+  --color-ink-soft: #3c4650;
+  --color-indigo: #1b3a5c;
+  --color-indigo-deep: #0f2439;
+  --color-clay: #a6491f;
+  --color-clay-soft: #ac4f28;
+  --color-brass: #75581e;
+  --color-brass-light: #d1ab5a;
+  --color-line: #d3d5cc;
+  --color-line-dark: #2c3a4a;
+}
+
+@theme inline {
+  --color-paper: var(--color-paper);
+  --color-paper-dim: var(--color-paper-dim);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-indigo: var(--color-indigo);
+  --color-indigo-deep: var(--color-indigo-deep);
+  --color-clay: var(--color-clay);
+  --color-clay-soft: var(--color-clay-soft);
+  --color-brass: var(--color-brass);
+  --color-brass-light: var(--color-brass-light);
+  --color-line: var(--color-line);
+  --color-line-dark: var(--color-line-dark);
+
+  --font-display: "Zilla Slab", ui-serif, Georgia, serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --container-content: 72rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* Ledger rule — a thin horizontal divider used instead of card shadows */
+.rule {
+  border-top: 1px solid var(--color-line);
+}
+
+.rule-dark {
+  border-top: 1px solid var(--color-line-dark);
+}
+
+/* Visible keyboard focus, kept consistent across interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-clay);
+  outline-offset: 2px;
+}
+
+@keyframes index-sweep {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(216px);
+    opacity: 0;
+  }
+}
+
+.animate-index-sweep {
+  animation: index-sweep 4.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
