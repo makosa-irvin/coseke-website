@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { CtaBand } from "@/components/cta-band";
+import { RecordGridIllustration } from "@/components/record-grid-illustration";
 import { getSolutionBySlug, solutions } from "@/content/solutions";
 import { getCaseStudiesForSolution } from "@/content/case-studies";
 import { breadcrumbJsonLd } from "@/lib/breadcrumb";
@@ -44,19 +45,32 @@ export default async function SolutionDetailPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
       <section className="border-line bg-indigo-deep text-paper border-b">
-        <Container className="py-16 lg:py-20">
-          <Link
-            href="/solutions"
-            className="text-paper/70 hover:text-paper inline-flex items-center gap-1 text-sm"
-          >
-            <ArrowLeft size={16} />
-            All solutions
-          </Link>
-          <p className="text-brass-light mt-6 text-sm">{solution.tagline}</p>
-          <h1 className="font-display mt-3 max-w-2xl text-4xl font-semibold sm:text-5xl">
-            {solution.name}
-          </h1>
-          <p className="text-paper/70 mt-5 max-w-xl">{solution.summary}</p>
+        <Container
+          className={
+            solution.slug === "digitization"
+              ? "grid gap-12 py-16 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:py-20"
+              : "py-16 lg:py-20"
+          }
+        >
+          <div>
+            <Link
+              href="/solutions"
+              className="text-paper/70 hover:text-paper inline-flex items-center gap-1 text-sm"
+            >
+              <ArrowLeft size={16} />
+              All solutions
+            </Link>
+            <p className="text-brass-light mt-6 text-sm">{solution.tagline}</p>
+            <h1 className="font-display mt-3 max-w-2xl text-4xl font-semibold sm:text-5xl">
+              {solution.name}
+            </h1>
+            <p className="text-paper/70 mt-5 max-w-xl">{solution.summary}</p>
+          </div>
+          {solution.slug === "digitization" ? (
+            <div className="flex justify-center lg:justify-end">
+              <RecordGridIllustration />
+            </div>
+          ) : null}
         </Container>
       </section>
 
