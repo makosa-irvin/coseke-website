@@ -12,11 +12,28 @@ and the illustration is replaced automatically on next deploy.
 
 | File to add | Used on | Recommended size | Brief |
 |---|---|---|---|
-| `about-team.jpg` | About page, "How we got here" section | 1200×800px, landscape | A real photo of the Coseke team, an office, or staff at work — ideally Nairobi HQ. Avoid stock photography; this is a credibility signal specifically because it's real. |
+| `team-nairobi.jpg` | About page, regional team section | 800×550px | A real photo of the Nairobi/HQ team or office. |
+| `team-kampala.jpg` | About page, regional team section | 800×550px | Same, for the Kampala/Uganda team. |
+| `team-dar-es-salaam.jpg` | About page, regional team section | 800×550px | Same, for the Dar es Salaam/Tanzania team. |
+| `team-kigali.jpg` | About page, regional team section | 800×550px | Same, for the Kigali/Rwanda team. |
+| `leadership-records.jpg` | About page, Leadership section | 600×600px, square | Headshot for the Document & Records Management practice lead. See `src/content/team.ts` — add the person's `name` in that file at the same time as the photo, not before; a photo with no name attached would misrepresent someone. |
+| `leadership-governance.jpg` | About page, Leadership section | 600×600px, square | Headshot for the Governance & Meetings practice lead. Same note as above. |
+| `leadership-systems.jpg` | About page, Leadership section | 600×600px, square | Headshot for the Business Systems practice lead. Same note as above. |
+| `leadership-infrastructure.jpg` | About page, Leadership section | 600×600px, square | Headshot for the Infrastructure & Support practice lead. Same note as above. |
 | `case-study-kenya-airports-authority.jpg` | `/case-studies/kenya-airports-authority` | 800×800px, square | Photo related to the KAA engagement, or the KAA client mark/logo (only with their permission to use it). |
 | `case-study-kenya-ports-authority-pension.jpg` | `/case-studies/kenya-ports-authority-pension` | 800×800px, square | Same as above, for the KPA Pension Scheme engagement. |
 | `case-study-sheria-sacco.jpg` | `/case-studies/sheria-sacco` | 800×800px, square | Same, for Sheria Sacco. |
 | `case-study-minet.jpg` | `/case-studies/minet` | 800×800px, square | Same, for Minet Group. |
+
+## Leadership photos specifically
+
+Unlike every other row in this table, the leadership photos aren't just
+missing images — the *names* are also placeholders (or rather, absent
+entirely; see the header comment in `src/content/team.ts`). We don't have
+verified information about who holds these roles, so the page currently
+shows the role title and practice description without a person attached to
+it, rather than inventing one. Add the `name` field in `team.ts` and the
+headshot here together, once confirmed.
 
 ## Notes
 

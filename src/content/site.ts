@@ -101,6 +101,7 @@ export const navigation = {
     { label: "Solutions", href: "/solutions" },
     { label: "Industries", href: "/industries" },
     { label: "Case Studies", href: "/case-studies" },
+    { label: "Blog", href: "/blog" },
     { label: "About", href: "/about" },
     { label: "Careers", href: "/careers" },
     { label: "Contact", href: "/contact" },
