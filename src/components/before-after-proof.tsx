@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { Check, X } from "lucide-react";
+import { Check, X, ArrowRight } from "lucide-react";
 import type { CaseStudy } from "@/content/case-studies";
 
 export function BeforeAfterProof({ caseStudy }: { caseStudy: CaseStudy }) {
   if (!caseStudy.before || !caseStudy.after || !caseStudy.quote) return null;
 
   return (
-    <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center">
-      <div>
+    <div>
+      <div className="max-w-2xl">
         <blockquote className="font-display text-paper text-xl leading-snug sm:text-2xl">
           &ldquo;{caseStudy.quote.text}&rdquo;
         </blockquote>
@@ -23,11 +23,21 @@ export function BeforeAfterProof({ caseStudy }: { caseStudy: CaseStudy }) {
         </Link>
       </div>
 
-      <div className="border-line-dark overflow-hidden border">
-        <div className="bg-indigo-deep/80 p-5">
-          <p className="text-paper/40 text-[11px] tracking-wide uppercase">Before</p>
-          <p className="text-paper mt-1 text-sm font-medium">A trip to physical storage</p>
-          <ul className="mt-3 space-y-2">
+      <div className="border-line-dark relative mt-10 grid border sm:grid-cols-2">
+        <div className="border-line-dark bg-indigo-deep/80 border-b p-6 sm:border-r sm:border-b-0 sm:pr-10">
+          <div className="flex items-center gap-3">
+            <span
+              aria-hidden
+              className="border-paper/20 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border"
+            >
+              <X size={16} className="text-paper/50" />
+            </span>
+            <div>
+              <p className="text-paper/40 text-[11px] tracking-wide uppercase">Before</p>
+              <p className="text-paper text-sm font-medium">A trip to physical storage</p>
+            </div>
+          </div>
+          <ul className="mt-4 space-y-2.5">
             {caseStudy.before.map((item) => (
               <li key={item} className="text-paper/60 flex items-start gap-2 text-sm">
                 <X size={14} className="text-paper/40 mt-0.5 shrink-0" />
@@ -36,12 +46,21 @@ export function BeforeAfterProof({ caseStudy }: { caseStudy: CaseStudy }) {
             ))}
           </ul>
         </div>
-        <div className="bg-brass-light p-5">
-          <p className="text-indigo-deep/60 text-[11px] tracking-wide uppercase">After</p>
-          <p className="text-indigo-deep mt-1 text-sm font-medium">
-            Searchable, structured records
-          </p>
-          <ul className="mt-3 space-y-2">
+
+        <div className="bg-brass-light p-6 sm:pl-10">
+          <div className="flex items-center gap-3">
+            <span
+              aria-hidden
+              className="border-indigo-deep/20 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border"
+            >
+              <Check size={16} className="text-indigo-deep" />
+            </span>
+            <div>
+              <p className="text-indigo-deep/60 text-[11px] tracking-wide uppercase">After</p>
+              <p className="text-indigo-deep text-sm font-medium">Searchable, structured records</p>
+            </div>
+          </div>
+          <ul className="mt-4 space-y-2.5">
             {caseStudy.after.map((item) => (
               <li key={item} className="text-indigo-deep/80 flex items-start gap-2 text-sm">
                 <Check size={14} className="mt-0.5 shrink-0" />
@@ -50,6 +69,13 @@ export function BeforeAfterProof({ caseStudy }: { caseStudy: CaseStudy }) {
             ))}
           </ul>
         </div>
+
+        <span
+          aria-hidden
+          className="border-line-dark bg-indigo-deep absolute top-1/2 left-1/2 hidden h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border sm:flex"
+        >
+          <ArrowRight size={16} className="text-brass-light" />
+        </span>
       </div>
     </div>
   );
