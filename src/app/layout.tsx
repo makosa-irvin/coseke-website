@@ -15,6 +15,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { siteConfig } from "@/content/site";
+import { offices } from "@/content/offices";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -47,6 +48,28 @@ export const metadata: Metadata = {
   },
 };
 
+const countryCodes: Record<string, string> = {
+  Kenya: "KE",
+  Uganda: "UG",
+  Tanzania: "TZ",
+  Rwanda: "RW",
+};
+
+function officeToLocation(office: (typeof offices)[number]) {
+  return {
+    "@type": "Organization",
+    name: `Coseke — ${office.city}`,
+    telephone: office.phone,
+    email: office.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: office.address.join(", "),
+      addressLocality: office.city,
+      addressCountry: countryCodes[office.country] ?? office.country,
+    },
+  };
+}
+
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -56,6 +79,8 @@ const organizationJsonLd = {
   description: siteConfig.description,
   areaServed: ["Kenya", "Uganda", "Tanzania", "Rwanda"],
   slogan: siteConfig.motto,
+  address: officeToLocation(offices.find((o) => o.isHQ) ?? offices[0]).address,
+  department: offices.filter((o) => !o.isHQ).map(officeToLocation),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

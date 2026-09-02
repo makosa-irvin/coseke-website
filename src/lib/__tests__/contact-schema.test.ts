@@ -50,4 +50,25 @@ describe("contactFormSchema", () => {
     });
     expect(result.success).toBe(false);
   });
+
+  it("defaults requestType to general when not provided", () => {
+    const result = contactFormSchema.safeParse(validSubmission);
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.requestType).toBe("general");
+    }
+  });
+
+  it("accepts requestType 'demo'", () => {
+    const result = contactFormSchema.safeParse({ ...validSubmission, requestType: "demo" });
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.requestType).toBe("demo");
+    }
+  });
+
+  it("rejects an unrecognized requestType", () => {
+    const result = contactFormSchema.safeParse({ ...validSubmission, requestType: "urgent" });
+    expect(result.success).toBe(false);
+  });
 });

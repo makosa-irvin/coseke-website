@@ -9,7 +9,12 @@ type Status = "idle" | "submitting" | "success" | "error";
 const fieldClasses =
   "w-full border border-line bg-paper px-4 py-3 text-sm text-ink placeholder:text-ink-soft/50 focus:border-indigo";
 
-export function ContactForm() {
+type Props = {
+  defaultInterest?: string;
+  isDemoRequest?: boolean;
+};
+
+export function ContactForm({ defaultInterest, isDemoRequest = false }: Props) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -110,7 +115,12 @@ export function ContactForm() {
         <label htmlFor="interest" className="text-ink text-sm font-medium">
           What are you looking into?
         </label>
-        <select id="interest" name="interest" defaultValue="" className={`mt-2 ${fieldClasses}`}>
+        <select
+          id="interest"
+          name="interest"
+          defaultValue={defaultInterest ?? ""}
+          className={`mt-2 ${fieldClasses}`}
+        >
           <option value="">Select a solution area</option>
           {solutions.map((s) => (
             <option key={s.slug} value={s.tabLabel}>
@@ -121,6 +131,8 @@ export function ContactForm() {
         </select>
       </div>
 
+      <input type="hidden" name="requestType" value={isDemoRequest ? "demo" : "general"} />
+
       <div>
         <label htmlFor="message" className="text-ink text-sm font-medium">
           Message
@@ -130,7 +142,11 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
-          placeholder="Tell us about the process, archive, or system you're working with."
+          placeholder={
+            isDemoRequest
+              ? "A rough idea of your current volumes and what you'd want to see in a walkthrough."
+              : "Tell us about the process, archive, or system you're working with."
+          }
           className={`mt-2 ${fieldClasses}`}
         />
       </div>
@@ -152,7 +168,7 @@ export function ContactForm() {
         disabled={status === "submitting"}
         className="bg-clay text-paper hover:bg-clay-soft px-6 py-3 text-sm font-medium transition-colors disabled:opacity-60"
       >
-        {status === "submitting" ? "Sending…" : "Send message"}
+        {status === "submitting" ? "Sending…" : isDemoRequest ? "Request demo" : "Send message"}
       </button>
     </form>
   );

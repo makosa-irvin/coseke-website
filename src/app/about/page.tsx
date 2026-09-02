@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { CtaBand } from "@/components/cta-band";
 import { StatRow } from "@/components/stat-row";
+import { Photo } from "@/components/photo";
+import { TeamPhotoFallback } from "@/components/illustrations/team-photo-fallback";
+import { RegionMapIllustration } from "@/components/illustrations/region-map-illustration";
+import { AccreditationBadges } from "@/components/accreditation-badges";
 import { values } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -29,7 +34,7 @@ const timeline = [
   {
     era: "2010s",
     title: "Enterprise platforms, not point tools",
-    body: "Coseke becomes a Hyland OnBase and Passageways implementation partner, moving clients from standalone scanning to governed, workflow-driven systems.",
+    body: "Coseke becomes a Hyland OnBase and OnBoard by Passageways implementation partner, moving clients from standalone scanning to governed, workflow-driven systems.",
   },
   {
     era: "2020",
@@ -64,29 +69,74 @@ export default function AboutPage() {
       </section>
 
       <section className="py-16">
-        <Container className="grid gap-12 lg:grid-cols-[1fr_1.3fr]">
+        <Container className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
+          <Photo
+            src="/images/about-team.jpg"
+            alt="The Coseke team"
+            fallback={<TeamPhotoFallback />}
+            className="border-line h-72 w-full border object-cover lg:h-96"
+          />
           <div>
-            <h2 className="font-display text-indigo text-3xl font-semibold">Our motto</h2>
-            <p className="font-display text-clay mt-3 text-2xl italic">
-              &ldquo;Quality means no compromise.&rdquo;
+            <h2 className="font-display text-indigo text-3xl font-semibold">
+              A regional team, not a reseller with a local number
+            </h2>
+            <p className="text-ink-soft mt-4">
+              Every engagement is scoped and delivered by people based in the country they&apos;re
+              working in, not flown in for a project and gone by go-live. That&apos;s what lets us
+              stay accountable after the contract is signed.
             </p>
-            <p className="text-ink-soft mt-6">
-              We&apos;re a regional company competing against global vendors, so we don&apos;t win
-              on scale. We win by staying accountable for what we build long after go-live, and by
-              being the team that actually answers the phone when a system needs attention.
-            </p>
+            <div className="mt-6">
+              <AccreditationBadges />
+            </div>
           </div>
+        </Container>
+      </section>
 
+      <section className="border-line bg-paper-dim border-y py-16">
+        <Container>
+          <h2 className="font-display text-indigo text-2xl font-semibold">Our motto</h2>
+          <p className="font-display text-clay mt-3 text-2xl italic">
+            &ldquo;Quality means no compromise.&rdquo;
+          </p>
+          <p className="text-ink-soft mt-6 max-w-2xl">
+            We&apos;re a regional company competing against global vendors, so we don&apos;t win on
+            scale. We win by staying accountable for what we build long after go-live, and by being
+            the team that actually answers the phone when a system needs attention.
+          </p>
+        </Container>
+      </section>
+
+      <section className="py-16">
+        <Container>
+          <h2 className="font-display text-indigo text-3xl font-semibold">What we work by</h2>
+          <ul className="divide-line border-line mt-6 divide-y border-t">
+            {values.map((value) => (
+              <li key={value.name} className="grid gap-1 py-4 sm:grid-cols-[10rem_1fr] sm:gap-6">
+                <p className="text-indigo font-medium">{value.name}</p>
+                <p className="text-ink-soft text-sm">{value.description}</p>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      <section className="border-line bg-paper-dim border-t py-16">
+        <Container className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
-            <h2 className="font-display text-indigo text-3xl font-semibold">What we work by</h2>
-            <ul className="divide-line border-line mt-6 divide-y border-t">
-              {values.map((value) => (
-                <li key={value.name} className="grid gap-1 py-4 sm:grid-cols-[10rem_1fr] sm:gap-6">
-                  <p className="text-indigo font-medium">{value.name}</p>
-                  <p className="text-ink-soft text-sm">{value.description}</p>
-                </li>
-              ))}
-            </ul>
+            <h2 className="font-display text-indigo text-3xl font-semibold">Where we work</h2>
+            <p className="text-ink-soft mt-4 max-w-md">
+              Four offices across four countries, run as one regional team rather than franchised
+              branches.
+            </p>
+            <Link
+              href="/contact"
+              className="text-indigo hover:text-clay mt-6 inline-block text-sm font-medium"
+            >
+              Full office directory
+            </Link>
+          </div>
+          <div className="flex justify-center lg:justify-end">
+            <RegionMapIllustration />
           </div>
         </Container>
       </section>

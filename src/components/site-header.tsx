@@ -2,8 +2,11 @@ import Link from "next/link";
 import { navigation } from "@/content/site";
 import { Container } from "@/components/ui/container";
 import { MobileNav } from "@/components/mobile-nav";
+import { SolutionsMegaMenu } from "@/components/solutions-mega-menu";
 
 export function SiteHeader() {
+  const restNav = navigation.primary.filter((item) => item.label !== "Solutions");
+
   return (
     <header className="border-line-dark bg-indigo-deep text-paper relative z-50 border-b">
       <Container className="flex h-16 items-center justify-between">
@@ -16,7 +19,8 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {navigation.primary.map((item) => (
+          <SolutionsMegaMenu />
+          {restNav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -27,12 +31,18 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-4 md:flex">
           <Link
             href="/contact"
-            className="border-clay-soft/70 text-paper hover:bg-clay hover:border-clay border px-4 py-2 text-sm font-medium transition-colors"
+            className="text-paper/80 hover:text-paper text-sm transition-colors"
           >
             Talk to us
+          </Link>
+          <Link
+            href="/contact?type=demo"
+            className="border-clay-soft/70 text-paper hover:border-clay hover:bg-clay border px-4 py-2 text-sm font-medium transition-colors"
+          >
+            Request a demo
           </Link>
         </div>
 

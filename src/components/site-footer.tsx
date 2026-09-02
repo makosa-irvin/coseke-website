@@ -2,10 +2,14 @@ import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { offices } from "@/content/offices";
 import { navigation, siteConfig } from "@/content/site";
-import { solutions } from "@/content/solutions";
+import { solutionCategories, getSolutionsByCategory } from "@/content/solutions";
+import { AccreditationBadges } from "@/components/accreditation-badges";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
+  const footerSolutions = solutionCategories.map(
+    (category) => getSolutionsByCategory(category.id)[0],
+  );
 
   return (
     <footer className="border-line-dark bg-indigo-deep text-paper/90 border-t">
@@ -16,6 +20,9 @@ export function SiteFooter() {
             {siteConfig.description}
           </p>
           <p className="text-brass-light mt-6 text-sm italic">&ldquo;{siteConfig.motto}&rdquo;</p>
+          <div className="mt-6">
+            <AccreditationBadges variant="dark" />
+          </div>
         </div>
 
         <div>
@@ -36,7 +43,7 @@ export function SiteFooter() {
           </ul>
           <p className="text-paper mt-6 text-sm font-medium">Solutions</p>
           <ul className="text-paper/70 mt-4 space-y-3 text-sm">
-            {solutions.slice(0, 4).map((s) => (
+            {footerSolutions.map((s) => (
               <li key={s.slug}>
                 <Link href={`/solutions/${s.slug}`} className="hover:text-paper">
                   {s.tabLabel}

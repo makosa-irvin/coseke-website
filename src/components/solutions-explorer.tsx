@@ -3,16 +3,48 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { solutions } from "@/content/solutions";
+import { solutionCategories, getSolutionsByCategory } from "@/content/solutions";
 
 export function SolutionsExplorer() {
-  const [activeSlug, setActiveSlug] = useState(solutions[0].slug);
-  const active = solutions.find((s) => s.slug === activeSlug) ?? solutions[0];
+  const [activeCategory, setActiveCategory] = useState(solutionCategories[0].id);
+  const categorySolutions = getSolutionsByCategory(activeCategory);
+  const [activeSlug, setActiveSlug] = useState(categorySolutions[0].slug);
+
+  const active = categorySolutions.find((s) => s.slug === activeSlug) ?? categorySolutions[0];
+
+  function selectCategory(categoryId: string) {
+    setActiveCategory(categoryId);
+    setActiveSlug(getSolutionsByCategory(categoryId)[0].slug);
+  }
 
   return (
     <div>
-      <div role="tablist" aria-label="Solutions" className="flex flex-wrap gap-1">
-        {solutions.map((solution) => {
+      <div className="flex flex-wrap gap-2">
+        {solutionCategories.map((category) => {
+          const isActive = category.id === activeCategory;
+          return (
+            <button
+              key={category.id}
+              type="button"
+              onClick={() => selectCategory(category.id)}
+              className={`px-4 py-2 text-sm font-medium transition-colors ${
+                isActive
+                  ? "bg-indigo text-paper"
+                  : "border-line text-ink-soft hover:text-indigo border"
+              }`}
+            >
+              {category.name}
+            </button>
+          );
+        })}
+      </div>
+
+      <div
+        className="mt-6 flex flex-wrap gap-1"
+        role="tablist"
+        aria-label="Solutions in this category"
+      >
+        {categorySolutions.map((solution) => {
           const isActive = solution.slug === activeSlug;
           return (
             <button

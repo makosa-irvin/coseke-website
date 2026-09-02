@@ -6,18 +6,23 @@ import { StatRow } from "@/components/stat-row";
 import { SolutionsExplorer } from "@/components/solutions-explorer";
 import { PartnerMarks } from "@/components/partner-marks";
 import { TestimonialBlock } from "@/components/testimonial-block";
+import { ClientStrip } from "@/components/client-strip";
 import { CtaBand } from "@/components/cta-band";
 import { industries } from "@/content/industries";
-import { testimonials } from "@/content/site";
+import { caseStudies } from "@/content/case-studies";
+import { solutions } from "@/content/solutions";
 
 export default function HomePage() {
+  const featuredCaseStudies = caseStudies.filter((c) => c.quote);
+
   return (
     <>
       <section className="border-line bg-indigo-deep text-paper border-b">
         <Container className="grid gap-12 py-16 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:py-24">
           <div>
             <p className="text-brass-light text-sm">
-              Pan-African information and content management, since 1990
+              Enterprise document and records management for East Africa&apos;s public and private
+              sector, since 1990
             </p>
             <h1 className="font-display mt-4 max-w-xl text-4xl leading-[1.05] font-semibold sm:text-5xl">
               Turn paper backlogs into systems your team can search in seconds.
@@ -29,10 +34,10 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
-                href="/contact"
+                href="/contact?type=demo"
                 className="bg-clay text-paper hover:bg-clay-soft px-6 py-3 text-sm font-medium transition-colors"
               >
-                Talk to us
+                Request a demo
               </Link>
               <Link
                 href="/solutions"
@@ -40,6 +45,12 @@ export default function HomePage() {
               >
                 See our solutions
               </Link>
+            </div>
+            <div className="mt-10">
+              <p className="text-paper/50 text-xs">Trusted by organizations including</p>
+              <div className="mt-3">
+                <ClientStrip />
+              </div>
             </div>
           </div>
 
@@ -59,7 +70,7 @@ export default function HomePage() {
         <Container>
           <div className="max-w-2xl">
             <h2 className="font-display text-indigo text-3xl font-semibold sm:text-4xl">
-              Six solution areas, one team accountable for all of them
+              {solutions.length} solutions across four areas, one team accountable for all of them
             </h2>
             <p className="text-ink-soft mt-4">
               We don&apos;t hand you off between a software vendor, a scanning bureau, and a
@@ -105,12 +116,19 @@ export default function HomePage() {
 
       <section className="py-20">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-2">
-            {testimonials.map((testimonial) => (
-              <TestimonialBlock
-                key={testimonial.attribution + testimonial.context}
-                testimonial={testimonial}
-              />
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <h2 className="font-display text-indigo text-3xl font-semibold">In their words</h2>
+            <Link
+              href="/case-studies"
+              className="text-indigo hover:text-clay inline-flex items-center gap-1 text-sm font-medium"
+            >
+              All case studies
+              <ArrowUpRight size={16} />
+            </Link>
+          </div>
+          <div className="mt-10 grid gap-12 lg:grid-cols-2">
+            {featuredCaseStudies.map((study) => (
+              <TestimonialBlock key={study.slug} caseStudy={study} />
             ))}
           </div>
         </Container>
@@ -133,9 +151,11 @@ export default function HomePage() {
 
       <CtaBand
         heading="Tell us what's still on paper."
-        body="Send over a short description of the process or archive you want to fix. We'll come back with what it would take, in plain terms."
-        secondaryLabel="Learn about Coseke"
-        secondaryHref="/about"
+        body="Send over a short description of the process or archive you want to fix. We'll come back with what it would take, in plain terms, or you can download a short overview first."
+        primaryLabel="Request a demo"
+        primaryHref="/contact?type=demo"
+        secondaryLabel="Download brochure"
+        secondaryHref="/downloads/coseke-company-overview.pdf"
       />
     </>
   );

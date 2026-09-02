@@ -46,37 +46,37 @@ export const values: Value[] = [
   },
 ];
 
-export type Testimonial = {
-  quote: string;
-  attribution: string;
-  context: string;
+export const partners = {
+  platforms: [
+    { name: "Hyland OnBase", note: "Enterprise content management platform" },
+    { name: "Kodak Alaris", note: "Capture Pro production scanning" },
+    { name: "OnBoard by Passageways", note: "Board and meeting management" },
+  ],
+  infrastructure: [
+    { name: "Dell EMC", note: "Data protection & storage" },
+    { name: "HPE", note: "Servers & edge-to-cloud infrastructure" },
+    { name: "Huawei Enterprise", note: "ICT infrastructure" },
+    { name: "NetApp", note: "Cloud & storage infrastructure" },
+    { name: "Veeam", note: "Backup & data protection" },
+    { name: "Cisco", note: "Networking, security & collaboration" },
+  ],
 };
 
-export const testimonials: Testimonial[] = [
-  {
-    quote:
-      "Before our board portal went live, preparing for a board meeting meant printing, binding, and last-minute reprints under pressure. Now agendas update instantly, papers are a click away, and meetings no longer depend on everyone being in the same room.",
-    attribution: "Board Secretary",
-    context: "Financial services client, on the e-board meeting management rollout",
-  },
-  {
-    quote:
-      "Search and retrieval of our files is faster and easier than it has ever been, and the indexing process kept every document's integrity intact. We're confident Coseke can run bulk digitization for any institution to the same standard.",
-    attribution: "Records Manager",
-    context: "Public sector client, on a bulk digitization and indexing project",
-  },
-];
+export const accreditations = ["ISO certified", "NITA accredited", "SGS certified"];
 
-export const partners = [
-  { name: "Hyland OnBase", note: "Enterprise content management platform" },
-  { name: "Kodak Alaris", note: "Capture Pro production scanning" },
-  { name: "Passageways", note: "Board and meeting management" },
+export const clients = [
+  { name: "Kenya Airports Authority", url: "https://www.kaa.go.ke" },
+  { name: "Kenya Ports Authority Pension Scheme", url: "https://kpapension.co.ke" },
+  { name: "Sheria Sacco" },
+  { name: "Minet Group" },
+  { name: "Cosmopolitan Sacco", url: "https://www.cosmopolitansacco.com" },
 ];
 
 export const navigation = {
   primary: [
     { label: "Solutions", href: "/solutions" },
     { label: "Industries", href: "/industries" },
+    { label: "Case Studies", href: "/case-studies" },
     { label: "About", href: "/about" },
     { label: "Careers", href: "/careers" },
     { label: "Contact", href: "/contact" },
