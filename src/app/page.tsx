@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
-import { RecordGridIllustration } from "@/components/record-grid-illustration";
+import { ProductPanelMockup } from "@/components/product-panel-mockup";
+import { PillarGrid } from "@/components/pillar-grid";
 import { StatRow } from "@/components/stat-row";
 import { SolutionsExplorer } from "@/components/solutions-explorer";
 import { PartnerMarks } from "@/components/partner-marks";
@@ -21,16 +22,15 @@ export default function HomePage() {
         <Container className="grid gap-12 py-16 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:py-24">
           <div>
             <p className="text-brass-light text-sm">
-              Enterprise document and records management for East Africa&apos;s public and private
-              sector, since 1990
+              Enterprise systems for East Africa&apos;s public and private sector, since 1990
             </p>
             <h1 className="font-display mt-4 max-w-xl text-4xl leading-[1.05] font-semibold sm:text-5xl">
-              Turn paper backlogs into systems your team can search in seconds.
+              The systems behind how East African institutions run.
             </h1>
             <p className="text-paper/70 mt-6 max-w-lg">
-              Coseke designs and runs the document management, digitization, and board governance
-              systems that government and private-sector organizations across East Africa rely on to
-              capture, manage, share, and preserve their records.
+              Records, governance, business systems, and the infrastructure underneath — Coseke
+              designs, builds, and supports all four for government and private-sector organizations
+              across the region, from one accountable team.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
@@ -43,7 +43,7 @@ export default function HomePage() {
                 href="/solutions"
                 className="border-paper/40 text-paper hover:border-paper flex items-center gap-1 border px-6 py-3 text-sm font-medium transition-colors"
               >
-                See our solutions
+                See all {solutions.length} solutions
               </Link>
             </div>
             <div className="mt-10">
@@ -55,12 +55,30 @@ export default function HomePage() {
           </div>
 
           <div className="flex justify-center lg:justify-end">
-            <RecordGridIllustration />
+            <ProductPanelMockup />
           </div>
         </Container>
       </section>
 
-      <section className="border-line border-b">
+      <section className="py-20">
+        <Container>
+          <div className="max-w-2xl">
+            <h2 className="font-display text-indigo text-3xl font-semibold sm:text-4xl">
+              Four areas. One accountable team.
+            </h2>
+            <p className="text-ink-soft mt-4">
+              We don&apos;t hand you off between a software vendor, a scanning bureau, and a
+              hardware reseller. Whichever of these you start with, Coseke scopes, builds, and
+              supports it end to end.
+            </p>
+          </div>
+          <div className="mt-10">
+            <PillarGrid />
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-line border-y">
         <Container className="py-0">
           <StatRow />
         </Container>
@@ -70,11 +88,11 @@ export default function HomePage() {
         <Container>
           <div className="max-w-2xl">
             <h2 className="font-display text-indigo text-3xl font-semibold sm:text-4xl">
-              {solutions.length} solutions across four areas, one team accountable for all of them
+              Look inside any of the four
             </h2>
             <p className="text-ink-soft mt-4">
-              We don&apos;t hand you off between a software vendor, a scanning bureau, and a
-              hardware reseller. Coseke scopes, builds, and supports each of these end to end.
+              Ten solutions, grouped into the areas above. Browse by category to see what&apos;s in
+              each one.
             </p>
           </div>
           <div className="mt-10">
@@ -150,8 +168,8 @@ export default function HomePage() {
       </section>
 
       <CtaBand
-        heading="Tell us what's still on paper."
-        body="Send over a short description of the process or archive you want to fix. We'll come back with what it would take, in plain terms, or you can download a short overview first."
+        heading="Tell us where to start."
+        body="Most clients begin with one of the four areas above and expand from there. We're glad to talk through any of them, or you can download a short overview first."
         primaryLabel="Request a demo"
         primaryHref="/contact?type=demo"
         secondaryLabel="Download brochure"

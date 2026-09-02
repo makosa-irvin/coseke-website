@@ -13,7 +13,7 @@ export const stats = [
   { label: "In operation", value: "1990", suffix: "", note: "35 years in information management" },
   { label: "Clients across the region", value: "400", suffix: "+" },
   { label: "Countries served", value: "6", suffix: "" },
-  { label: "Documents digitized to date", value: "250", suffix: "M+" },
+  { label: "Solutions across 4 areas", value: "10", suffix: "" },
 ];
 
 export type Value = { name: string; description: string };
