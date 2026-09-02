@@ -82,6 +82,7 @@ export const solutions: Solution[] = [
     ],
     benefits: [
       "Capacity to process very high volumes of pages per day",
+      "250M+ documents digitized across the region to date",
       "On-site or secure bureau-based scanning",
       "Structured indexing tailored to your filing and retention rules",
       "Day-forward scanning once the backlog is cleared",
