@@ -44,7 +44,7 @@ export default async function SolutionDetailPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <section className="border-line bg-indigo-deep text-paper border-b">
+      <section className="border-line bg-indigo-deep text-invert border-b">
         <Container
           className={
             solution.slug === "digitization"
@@ -55,7 +55,7 @@ export default async function SolutionDetailPage({ params }: Props) {
           <div>
             <Link
               href="/solutions"
-              className="text-paper/70 hover:text-paper inline-flex items-center gap-1 text-sm"
+              className="text-invert/70 hover:text-invert inline-flex items-center gap-1 text-sm"
             >
               <ArrowLeft size={16} />
               All solutions
@@ -64,7 +64,7 @@ export default async function SolutionDetailPage({ params }: Props) {
             <h1 className="font-display mt-3 max-w-2xl text-4xl font-semibold sm:text-5xl">
               {solution.name}
             </h1>
-            <p className="text-paper/70 mt-5 max-w-xl">{solution.summary}</p>
+            <p className="text-invert/70 mt-5 max-w-xl">{solution.summary}</p>
           </div>
           {solution.slug === "digitization" ? (
             <div className="flex justify-center lg:justify-end">

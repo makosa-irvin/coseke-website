@@ -166,7 +166,7 @@ export function ContactForm({ defaultInterest, isDemoRequest = false }: Props) {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="bg-clay text-paper hover:bg-clay-soft px-6 py-3 text-sm font-medium transition-colors disabled:opacity-60"
+        className="bg-clay text-invert hover:bg-clay-soft px-6 py-3 text-sm font-medium transition-colors disabled:opacity-60"
       >
         {status === "submitting" ? "Sending…" : isDemoRequest ? "Discuss project" : "Send message"}
       </button>

@@ -19,12 +19,12 @@ export default async function ContactPage({ searchParams }: Props) {
 
   return (
     <>
-      <section className="border-line bg-indigo-deep text-paper border-b">
+      <section className="border-line bg-indigo-deep text-invert border-b">
         <Container className="py-16 lg:py-20">
           <h1 className="font-display max-w-xl text-4xl font-semibold sm:text-5xl">
             {isDemo ? "Discuss your project" : "Talk to us"}
           </h1>
-          <p className="text-paper/70 mt-5 max-w-xl">
+          <p className="text-invert/70 mt-5 max-w-xl">
             {isDemo
               ? interest
                 ? `Tell us about your current process for ${interest.toLowerCase()}, and we'll set up a walkthrough on your own data where we can.`

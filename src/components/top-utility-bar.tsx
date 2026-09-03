@@ -6,7 +6,7 @@ export function TopUtilityBar() {
 
   return (
     <div className="bg-indigo-deep border-line-dark hidden border-b md:block">
-      <div className="text-paper/50 mx-auto flex h-9 w-full max-w-(--container-content) items-center justify-between px-6 text-xs lg:px-10">
+      <div className="text-invert/50 mx-auto flex h-9 w-full max-w-(--container-content) items-center justify-between px-6 text-xs lg:px-10">
         <ul className="flex items-center gap-3">
           {countries.map((country, i) => (
             <li key={country} className={i > 0 ? "border-line-dark border-l pl-3" : ""}>
@@ -16,7 +16,7 @@ export function TopUtilityBar() {
         </ul>
         <div className="flex items-center gap-4">
           <span className="italic">&ldquo;{siteConfig.motto}&rdquo;</span>
-          <a href={siteConfig.supportUrl} className="hover:text-paper">
+          <a href={siteConfig.supportUrl} className="hover:text-invert">
             Client support
           </a>
         </div>

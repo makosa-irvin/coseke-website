@@ -16,12 +16,12 @@ export const metadata: Metadata = {
 export default function CaseStudiesPage() {
   return (
     <>
-      <section className="border-line bg-indigo-deep text-paper border-b">
+      <section className="border-line bg-indigo-deep text-invert border-b">
         <Container className="py-16 lg:py-20">
           <h1 className="font-display max-w-2xl text-4xl font-semibold sm:text-5xl">
             Case studies
           </h1>
-          <p className="text-paper/70 mt-5 max-w-xl">
+          <p className="text-invert/70 mt-5 max-w-xl">
             Real deployments, in the clients&apos; own words: the problem they had, what we built,
             and what changed afterward.
           </p>
@@ -38,7 +38,7 @@ export default function CaseStudiesPage() {
                 className="group grid gap-3 py-8 sm:grid-cols-[auto_1fr_2fr_auto] sm:items-center sm:gap-6"
               >
                 <Photo
-                  src={`/images/case-study-${study.slug}.jpg`}
+                  src={`/images/client-logo-${study.slug}.png`}
                   alt={study.client}
                   fallback={<ClientMarkFallback name={study.client} />}
                   className="border-line hidden h-16 w-16 border object-cover sm:block"

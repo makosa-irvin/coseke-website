@@ -8,10 +8,10 @@ export function BeforeAfterProof({ caseStudy }: { caseStudy: CaseStudy }) {
   return (
     <div>
       <div className="max-w-2xl">
-        <blockquote className="font-display text-paper text-xl leading-snug sm:text-2xl">
+        <blockquote className="font-display text-invert text-xl leading-snug sm:text-2xl">
           &ldquo;{caseStudy.quote.text}&rdquo;
         </blockquote>
-        <p className="text-paper/60 mt-4 text-sm">
+        <p className="text-invert/60 mt-4 text-sm">
           <span className="text-brass-light font-medium">{caseStudy.quote.attribution}</span>
           <span className="block">{caseStudy.summary}</span>
         </p>
@@ -28,19 +28,19 @@ export function BeforeAfterProof({ caseStudy }: { caseStudy: CaseStudy }) {
           <div className="flex items-center gap-3">
             <span
               aria-hidden
-              className="border-paper/20 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border"
+              className="border-invert/20 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border"
             >
-              <X size={16} className="text-paper/50" />
+              <X size={16} className="text-invert/50" />
             </span>
             <div>
-              <p className="text-paper/40 text-[11px] tracking-wide uppercase">Before</p>
-              <p className="text-paper text-sm font-medium">A trip to physical storage</p>
+              <p className="text-invert/40 text-[11px] tracking-wide uppercase">Before</p>
+              <p className="text-invert text-sm font-medium">A trip to physical storage</p>
             </div>
           </div>
           <ul className="mt-4 space-y-2.5">
             {caseStudy.before.map((item) => (
-              <li key={item} className="text-paper/60 flex items-start gap-2 text-sm">
-                <X size={14} className="text-paper/40 mt-0.5 shrink-0" />
+              <li key={item} className="text-invert/60 flex items-start gap-2 text-sm">
+                <X size={14} className="text-invert/40 mt-0.5 shrink-0" />
                 {item}
               </li>
             ))}

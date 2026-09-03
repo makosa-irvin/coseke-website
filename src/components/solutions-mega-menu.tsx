@@ -33,7 +33,7 @@ export function SolutionsMegaMenu() {
         aria-expanded={open}
         aria-haspopup="true"
         onClick={() => setOpen((v) => !v)}
-        className="text-paper/80 hover:text-paper flex items-center gap-1 text-sm transition-colors"
+        className="text-invert/80 hover:text-invert flex items-center gap-1 text-sm transition-colors"
       >
         Solutions
         <ChevronDown

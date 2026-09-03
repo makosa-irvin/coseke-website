@@ -26,10 +26,10 @@ export default function BlogIndexPage() {
 
   return (
     <>
-      <section className="border-line bg-indigo-deep text-paper border-b">
+      <section className="border-line bg-indigo-deep text-invert border-b">
         <Container className="py-16 lg:py-20">
           <h1 className="font-display max-w-2xl text-4xl font-semibold sm:text-5xl">Blog</h1>
-          <p className="text-paper/70 mt-5 max-w-xl">
+          <p className="text-invert/70 mt-5 max-w-xl">
             Practical notes on document management, digitization, governance, and business systems,
             written for the people who have to actually implement them.
           </p>

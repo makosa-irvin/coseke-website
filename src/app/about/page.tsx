@@ -46,7 +46,7 @@ const timeline = [
 export default function AboutPage() {
   return (
     <>
-      <section className="border-line bg-indigo-deep text-paper border-b">
+      <section className="border-line bg-indigo-deep text-invert border-b">
         <Container className="grid gap-10 py-16 lg:grid-cols-[1.2fr_1fr] lg:items-end lg:py-20">
           <div>
             <h1 className="font-display max-w-xl text-4xl font-semibold sm:text-5xl">
@@ -54,7 +54,7 @@ export default function AboutPage() {
               systems.
             </h1>
           </div>
-          <p className="text-paper/70 max-w-md">
+          <p className="text-invert/70 max-w-md">
             Coseke is a Pan-African information and content management specialist, founded in 1990.
             We help organizations of every size capture, manage, share, and preserve their records,
             so information is an asset instead of a liability.

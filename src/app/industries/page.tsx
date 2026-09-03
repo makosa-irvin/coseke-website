@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 export default function IndustriesPage() {
   return (
     <>
-      <section className="border-line bg-indigo-deep text-paper border-b">
+      <section className="border-line bg-indigo-deep text-invert border-b">
         <Container className="py-16 lg:py-20">
           <h1 className="font-display max-w-2xl text-4xl font-semibold sm:text-5xl">Industries</h1>
-          <p className="text-paper/70 mt-5 max-w-xl">
+          <p className="text-invert/70 mt-5 max-w-xl">
             Even within one sector, no two organizations file, retain, or govern records the same
             way. We tailor each deployment to how your organization actually works, informed by
             three decades across these industries.

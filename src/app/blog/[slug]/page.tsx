@@ -75,11 +75,11 @@ export default async function BlogPostPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
 
-      <section className="border-line bg-indigo-deep text-paper border-b">
+      <section className="border-line bg-indigo-deep text-invert border-b">
         <Container className="py-16 lg:py-20">
           <Link
             href="/blog"
-            className="text-paper/70 hover:text-paper inline-flex items-center gap-1 text-sm"
+            className="text-invert/70 hover:text-invert inline-flex items-center gap-1 text-sm"
           >
             <ArrowLeft size={16} />
             All posts
@@ -88,7 +88,7 @@ export default async function BlogPostPage({ params }: Props) {
           <h1 className="font-display mt-3 max-w-2xl text-3xl font-semibold sm:text-4xl">
             {post.title}
           </h1>
-          <p className="text-paper/50 mt-5 text-sm">
+          <p className="text-invert/50 mt-5 text-sm">
             {formatDate(post.publishedAt)} · {estimateReadingTime(post.body)}
           </p>
         </Container>

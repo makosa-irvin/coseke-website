@@ -14,7 +14,7 @@ describe("TrustSection", () => {
   it("renders every accreditation", () => {
     render(<TrustSection />);
     for (const item of accreditations) {
-      expect(screen.getByText(item)).toBeInTheDocument();
+      expect(screen.getByText(item.label)).toBeInTheDocument();
     }
   });
 

@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/solutions",
     "/industries",
     "/case-studies",
+    "/partners",
     "/blog",
     "/careers",
     "/contact",

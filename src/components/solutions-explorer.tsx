@@ -29,7 +29,7 @@ export function SolutionsExplorer() {
               onClick={() => selectCategory(category.id)}
               className={`px-4 py-2 text-sm font-medium transition-colors ${
                 isActive
-                  ? "bg-indigo text-paper"
+                  ? "bg-clay text-invert"
                   : "border-line text-ink-soft hover:text-indigo border"
               }`}
             >

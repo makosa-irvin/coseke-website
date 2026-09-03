@@ -23,7 +23,7 @@ export function MobileNav() {
         aria-expanded={open}
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={() => setOpen((v) => !v)}
-        className="border-line-dark/40 text-paper flex h-10 w-10 items-center justify-center border"
+        className="border-line-dark/40 text-invert flex h-10 w-10 items-center justify-center border"
       >
         {open ? <X size={20} /> : <Menu size={20} />}
       </button>
@@ -36,7 +36,7 @@ export function MobileNav() {
                 type="button"
                 aria-expanded={solutionsOpen}
                 onClick={() => setSolutionsOpen((v) => !v)}
-                className="text-paper/90 flex w-full items-center justify-between text-lg"
+                className="text-invert/90 flex w-full items-center justify-between text-lg"
               >
                 Solutions
                 <ChevronDown size={18} className={solutionsOpen ? "rotate-180" : ""} />
@@ -54,7 +54,7 @@ export function MobileNav() {
                             <Link
                               href={`/solutions/${solution.slug}`}
                               onClick={close}
-                              className="text-paper/80 hover:text-paper text-base"
+                              className="text-invert/80 hover:text-invert text-base"
                             >
                               {solution.tabLabel}
                             </Link>
@@ -66,7 +66,7 @@ export function MobileNav() {
                   <Link
                     href="/solutions"
                     onClick={close}
-                    className="text-paper hover:text-brass-light inline-block text-sm font-medium"
+                    className="text-invert hover:text-brass-light inline-block text-sm font-medium"
                   >
                     View all solutions
                   </Link>
@@ -79,7 +79,7 @@ export function MobileNav() {
                 key={item.href}
                 href={item.href}
                 onClick={close}
-                className="text-paper/90 hover:text-brass-light py-4 text-lg"
+                className="text-invert/90 hover:text-brass-light py-4 text-lg"
               >
                 {item.label}
               </Link>
@@ -88,7 +88,7 @@ export function MobileNav() {
             <Link
               href="/contact"
               onClick={close}
-              className="text-paper/90 hover:text-brass-light py-4 text-lg"
+              className="text-invert/90 hover:text-brass-light py-4 text-lg"
             >
               Talk to us
             </Link>
