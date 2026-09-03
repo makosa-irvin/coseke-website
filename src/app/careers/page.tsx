@@ -12,12 +12,12 @@ export const metadata: Metadata = {
 export default function CareersPage() {
   return (
     <>
-      <section className="border-line bg-indigo-deep text-paper border-b">
+      <section className="border-line bg-indigo-deep text-invert border-b">
         <Container className="py-16 lg:py-20">
           <h1 className="font-display max-w-xl text-4xl font-semibold sm:text-5xl">
             Work on systems organizations actually depend on
           </h1>
-          <p className="text-paper/70 mt-5 max-w-xl">
+          <p className="text-invert/70 mt-5 max-w-xl">
             Coseke teams sit close to the client, from scoping a records migration to supporting it
             years after go-live. If you&apos;d rather build something that stays in production than
             ship a demo, this is that kind of work.

@@ -54,11 +54,11 @@ export default async function CaseStudyDetailPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <section className="border-line bg-indigo-deep text-paper border-b">
+      <section className="border-line bg-indigo-deep text-invert border-b">
         <Container className="py-16 lg:py-20">
           <Link
             href="/case-studies"
-            className="text-paper/70 hover:text-paper inline-flex items-center gap-1 text-sm"
+            className="text-invert/70 hover:text-invert inline-flex items-center gap-1 text-sm"
           >
             <ArrowLeft size={16} />
             All case studies
@@ -67,13 +67,13 @@ export default async function CaseStudyDetailPage({ params }: Props) {
           <h1 className="font-display mt-3 max-w-2xl text-4xl font-semibold sm:text-5xl">
             {study.client}
           </h1>
-          <p className="text-paper/70 mt-5 max-w-xl">{study.summary}</p>
+          <p className="text-invert/70 mt-5 max-w-xl">{study.summary}</p>
           <div className="mt-8">
             <Photo
               src={`/images/client-logo-${study.slug}.png`}
               alt={study.client}
               fallback={<ClientMarkFallback name={study.client} />}
-              className="border-paper/20 h-16 w-16 border object-cover"
+              className="border-invert/20 h-16 w-16 border object-cover"
             />
           </div>
         </Container>

@@ -50,12 +50,12 @@ function PartnerSection({
 export default function PartnersPage() {
   return (
     <>
-      <section className="border-line bg-indigo-deep text-paper border-b">
+      <section className="border-line bg-indigo-deep text-invert border-b">
         <Container className="py-16 lg:py-20">
           <h1 className="font-display max-w-2xl text-4xl font-semibold sm:text-5xl">
             Our Partners
           </h1>
-          <p className="text-paper/70 mt-5 max-w-xl">
+          <p className="text-invert/70 mt-5 max-w-xl">
             We build on established, widely supported technology rather than closed, proprietary
             tools we invented ourselves, so you&apos;re never the only organization running it and
             never dependent on us alone for support.

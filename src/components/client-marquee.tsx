@@ -2,13 +2,15 @@ import { Photo } from "@/components/photo";
 import { ClientMarkFallback } from "@/components/illustrations/client-mark-fallback";
 import { clients } from "@/content/site";
 
+const ROW_COUNT = 3;
+
 function ClientLogo({ client, hidden }: { client: (typeof clients)[number]; hidden?: boolean }) {
   const logo = (
     <Photo
       src={`/images/client-logo-${client.slug}.png`}
       alt={hidden ? "" : client.name}
       fallback={<ClientMarkFallback name={client.name} />}
-      className="h-16 w-auto max-w-[11rem] object-contain"
+      className="h-14 w-auto max-w-[9.5rem] object-contain"
     />
   );
   if (hidden) {
@@ -31,11 +33,19 @@ function ClientLogo({ client, hidden }: { client: (typeof clients)[number]; hidd
   );
 }
 
+function distributeIntoRows<T>(items: T[], rowCount: number): T[][] {
+  const rows: T[][] = Array.from({ length: rowCount }, () => []);
+  items.forEach((item, i) => rows[i % rowCount].push(item));
+  return rows;
+}
+
 export function ClientMarquee() {
+  const rows = distributeIntoRows(clients, ROW_COUNT);
+
   return (
     <div>
       {/* Single accessible list for screen readers — not visually shown,
-          not duplicated, not affected by motion preference. */}
+          not duplicated, not affected by motion preference or row layout. */}
       <ul className="sr-only">
         {clients.map((client) => (
           <li key={client.slug}>
@@ -50,22 +60,28 @@ export function ClientMarquee() {
         ))}
       </ul>
 
-      {/* Animated, looping strip (decorative — real content is in the sr-only
-          list above) — hidden entirely when the viewer prefers reduced motion */}
-      <div aria-hidden="true" className="overflow-hidden motion-reduce:hidden">
-        <div className="animate-marquee flex w-max items-center gap-14">
-          {[...clients, ...clients].map((client, i) => (
-            <div key={`${client.slug}-${i}`} className="flex shrink-0 items-center">
-              <ClientLogo client={client} hidden />
+      {/* Animated, looping rows (decorative — real content is in the
+          sr-only list above) — hidden entirely under reduced motion */}
+      <div aria-hidden="true" className="w-full space-y-4 motion-reduce:hidden">
+        {rows.map((row, i) => (
+          <div key={i} className="w-full overflow-hidden">
+            <div
+              className={`flex w-max items-center gap-12 ${i % 2 === 0 ? "animate-marquee" : "animate-marquee-reverse"}`}
+            >
+              {[...row, ...row].map((client, j) => (
+                <div key={`${client.slug}-${j}`} className="flex shrink-0 items-center">
+                  <ClientLogo client={client} hidden />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
 
       {/* Static wrapped fallback for reduced motion — also decorative */}
       <ul
         aria-hidden="true"
-        className="hidden flex-wrap items-center gap-x-10 gap-y-8 motion-reduce:flex"
+        className="hidden flex-wrap items-center gap-x-8 gap-y-6 motion-reduce:flex"
       >
         {clients.map((client) => (
           <li key={client.slug}>

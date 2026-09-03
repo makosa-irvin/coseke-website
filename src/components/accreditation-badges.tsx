@@ -14,7 +14,7 @@ function BadgeFallback({ label, variant }: { label: string; variant: "light" | "
 }
 
 export function AccreditationBadges({ variant = "light" }: { variant?: "light" | "dark" }) {
-  const labelClass = variant === "dark" ? "text-paper/60" : "text-ink-soft";
+  const labelClass = variant === "dark" ? "text-invert/60" : "text-ink-soft";
   return (
     <ul className="flex flex-wrap gap-5">
       {accreditations.map((item) => (

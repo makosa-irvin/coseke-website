@@ -18,7 +18,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="border-line bg-indigo-deep text-paper border-b">
+      <section className="border-line bg-indigo-deep text-invert border-b">
         <Container className="grid gap-12 py-16 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:py-24">
           <div>
             <p className="text-brass-light text-sm">
@@ -27,20 +27,20 @@ export default function HomePage() {
             <h1 className="font-display mt-4 max-w-xl text-4xl leading-[1.05] font-semibold sm:text-5xl">
               Build a more connected, efficient institution.
             </h1>
-            <p className="text-paper/70 mt-6 max-w-lg">
+            <p className="text-invert/70 mt-6 max-w-lg">
               Coseke designs, implements, and supports information management, digital governance,
               business systems, and ICT infrastructure &mdash; from one experienced regional team.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/contact?type=demo"
-                className="bg-clay text-paper hover:bg-clay-soft px-6 py-3 text-sm font-medium transition-colors"
+                className="bg-clay text-invert hover:bg-clay-soft px-6 py-3 text-sm font-medium transition-colors"
               >
                 Discuss your project
               </Link>
               <Link
                 href="/case-studies"
-                className="border-paper/40 text-paper hover:border-paper flex items-center gap-1 border px-6 py-3 text-sm font-medium transition-colors"
+                className="border-invert/40 text-invert hover:border-invert flex items-center gap-1 border px-6 py-3 text-sm font-medium transition-colors"
               >
                 See client outcomes
               </Link>
@@ -136,7 +136,7 @@ export default function HomePage() {
         <section className="bg-indigo-deep py-20">
           <Container>
             <p className="text-brass-light mb-3 text-sm font-medium">Proof in practice</p>
-            <h2 className="font-display text-paper mb-10 max-w-xl text-3xl font-semibold sm:text-4xl">
+            <h2 className="font-display text-invert mb-10 max-w-xl text-3xl font-semibold sm:text-4xl">
               From archive shelves to answers in seconds.
             </h2>
             <BeforeAfterProof caseStudy={featuredCaseStudy} />

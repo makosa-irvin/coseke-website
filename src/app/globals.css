@@ -15,13 +15,40 @@
   --color-line: #d3d5cc;
   --color-line-dark: #2c3a4a;
 
-  /* Pillar accents — one distinct, WCAG-checked color per solution category,
-     used only in the pillar grid so color carries real meaning (fast
-     self-sorting) rather than becoming decoration everywhere. */
+  /* Fixed, theme-invariant foreground for the site's permanent dark-navy
+     brand surfaces (hero bands, footer, CTA bands, buttons on clay/indigo).
+     Those surfaces don't change between light and dark mode — they're a
+     deliberate brand constant — so text/borders sitting on them can't use
+     the adaptive `paper` token below without going dark-on-dark the moment
+     dark mode flips it. Same literal value as light-mode paper; it just
+     never moves. */
+  --color-invert: #f2f3ee;
+
+  /* Pillar accents — one distinct, WCAG-checked color per solution category.
+     Used only as backgrounds/borders (icon badges, top borders), never as
+     text needing canvas contrast, so — like the brand surfaces above —
+     these stay constant across themes rather than needing dark variants. */
   --color-pillar-records: #2f6fa8;
   --color-pillar-governance: #8c6815;
   --color-pillar-systems: #157566;
   --color-pillar-infrastructure: #5c5a86;
+}
+
+/* Dark mode overrides — only the adaptive tokens above (paper, ink, line,
+   indigo, clay, brass) get redefined. indigo-deep, line-dark, invert,
+   brass-light, and the pillar accents are deliberately absent here: they're
+   theme-invariant brand constants (see comments above), so leaving them out
+   means they keep their :root value automatically in dark mode too. */
+:root.dark {
+  --color-paper: #0d1826;
+  --color-paper-dim: #141f2e;
+  --color-ink: #edf0ea;
+  --color-ink-soft: #a7b0b8;
+  --color-indigo: #dce6ef;
+  --color-clay: #d97a4f;
+  --color-clay-soft: #e08a5c;
+  --color-brass: #d1ab5a;
+  --color-line: #25313e;
 }
 
 @theme inline {
@@ -35,6 +62,7 @@
   --color-clay-soft: var(--color-clay-soft);
   --color-brass: var(--color-brass);
   --color-brass-light: var(--color-brass-light);
+  --color-invert: var(--color-invert);
   --color-line: var(--color-line);
   --color-line-dark: var(--color-line-dark);
 
@@ -57,6 +85,9 @@ body {
   background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 h1,
@@ -119,13 +150,18 @@ select:focus-visible {
 }
 
 .animate-marquee {
-  /* Duration scales with content: the client roster grew from 8 to 30+
-     logos, so the loop needs to be proportionally longer to keep a
-     comfortable, readable pace rather than a frantic scroll. */
-  animation: marquee 110s linear infinite;
+  /* Tuned for ~10-11 logos per row (31 clients split across 3 rows) at a
+     comfortable, readable pace — shorter than a single-row version would
+     need, since each row now carries a third of the content. */
+  animation: marquee 60s linear infinite;
 }
 
-.animate-marquee:hover {
+.animate-marquee-reverse {
+  animation: marquee 60s linear infinite reverse;
+}
+
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
   animation-play-state: paused;
 }
 
