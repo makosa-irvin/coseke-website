@@ -1,4 +1,4 @@
-import { ClientStrip } from "@/components/client-strip";
+import { ClientMarquee } from "@/components/client-marquee";
 import { AccreditationBadges } from "@/components/accreditation-badges";
 
 export function TrustSection() {
@@ -8,7 +8,7 @@ export function TrustSection() {
         <p className="text-ink-soft/70 mb-4 text-xs font-medium tracking-wide uppercase">
           Trusted across the region
         </p>
-        <ClientStrip />
+        <ClientMarquee />
       </div>
       <div className="border-line border p-5">
         <p className="text-ink-soft/70 mb-4 text-xs font-medium tracking-wide uppercase">

@@ -38,7 +38,7 @@ export default function CaseStudiesPage() {
                 className="group grid gap-3 py-8 sm:grid-cols-[auto_1fr_2fr_auto] sm:items-center sm:gap-6"
               >
                 <Photo
-                  src={`/images/case-study-${study.slug}.jpg`}
+                  src={`/images/client-logo-${study.slug}.png`}
                   alt={study.client}
                   fallback={<ClientMarkFallback name={study.client} />}
                   className="border-line hidden h-16 w-16 border object-cover sm:block"

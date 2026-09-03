@@ -107,6 +107,25 @@ select:focus-visible {
   animation: index-sweep 4.5s ease-in-out infinite;
 }
 
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Track renders the list twice back to back, so -50% is exactly one
+       full loop and the seam is invisible. */
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

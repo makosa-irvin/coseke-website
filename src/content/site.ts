@@ -74,23 +74,107 @@ export const values: Value[] = [
   },
 ];
 
-export const partners = {
+export type Partner = {
+  slug: string;
+  name: string;
+  /** Short, for compact display (homepage partner strip) */
+  note: string;
+  /** Fuller description for the dedicated /partners page */
+  description: string;
+};
+
+export const partners: {
+  platforms: Partner[];
+  infrastructure: Partner[];
+  storage: Partner[];
+} = {
   platforms: [
-    { name: "Hyland OnBase", note: "Enterprise content management platform" },
-    { name: "Kodak Alaris", note: "Capture Pro production scanning" },
-    { name: "OnBoard by Passageways", note: "Board and meeting management" },
+    {
+      slug: "hyland-onbase",
+      name: "Hyland OnBase",
+      note: "Enterprise content management platform",
+      description:
+        "OnBase is the enterprise content management platform our EDRMS and capture solutions are built on: document storage, workflow, and retention in one governed system rather than a collection of point tools bolted together.",
+    },
+    {
+      slug: "kodak-alaris",
+      name: "Kodak Alaris",
+      note: "Capture Pro production scanning",
+      description:
+        "Kodak Alaris' Capture Pro software and production scanners are what our digitization bureau runs on: high-volume batch scanning with the data extraction accuracy that large backlog-conversion projects need.",
+    },
+    {
+      slug: "onboard-passageways",
+      name: "OnBoard by Passageways",
+      note: "Board and meeting management",
+      description:
+        "OnBoard is the board and meeting management platform behind our governance solutions, giving directors a secure app for papers, annotation, and voting instead of a printed board pack.",
+    },
   ],
   infrastructure: [
-    { name: "Dell EMC", note: "Data protection & storage" },
-    { name: "HPE", note: "Servers & edge-to-cloud infrastructure" },
-    { name: "Huawei Enterprise", note: "ICT infrastructure" },
-    { name: "NetApp", note: "Cloud & storage infrastructure" },
-    { name: "Veeam", note: "Backup & data protection" },
-    { name: "Cisco", note: "Networking, security & collaboration" },
+    {
+      slug: "dell-emc",
+      name: "Dell EMC",
+      note: "Data protection & storage",
+      description:
+        "Dell EMC is one of the largest data protection vendors in the world. We draw on their storage and data protection portfolio when a project's infrastructure needs go beyond what a single server can handle.",
+    },
+    {
+      slug: "hpe",
+      name: "HPE",
+      note: "Servers & edge-to-cloud infrastructure",
+      description:
+        "HPE's edge-to-cloud infrastructure underpins the servers and compute environments we specify for larger deployments, sized to actual measured volumes rather than a generic recommendation.",
+    },
+    {
+      slug: "huawei-enterprise",
+      name: "Huawei Enterprise",
+      note: "ICT infrastructure",
+      description:
+        "Huawei Enterprise supplies a broad range of ICT infrastructure products we draw on for networking and compute, giving clients a wider range of infrastructure options depending on budget and existing environment.",
+    },
+    {
+      slug: "netapp",
+      name: "NetApp",
+      note: "Cloud & storage infrastructure",
+      description:
+        "NetApp's storage and cloud data services are what we turn to when a digitization or records project needs to manage large volumes of data reliably across hybrid on-premises and cloud environments.",
+    },
+    {
+      slug: "veeam",
+      name: "Veeam",
+      note: "Backup & data protection",
+      description:
+        "Veeam handles backup, recovery, and data protection for the systems we deploy, so a hardware failure or ransomware incident doesn't mean losing years of digitized records.",
+    },
+    {
+      slug: "cisco",
+      name: "Cisco",
+      note: "Networking, security & collaboration",
+      description:
+        "Cisco's networking, security, and collaboration equipment rounds out the infrastructure side of a deployment, from the network a document management system runs on to the security controls around it.",
+    },
+  ],
+  storage: [
+    {
+      slug: "bruynzeel",
+      name: "Bruynzeel",
+      note: "Mobile & compact shelving systems",
+      description:
+        "Bruynzeel's mobile and compact shelving systems are what we specify for physical archiving: the same footprint holding significantly more boxes and files than static shelving, which matters when an organization is retaining originals it can't yet destroy.",
+    },
   ],
 };
 
-export const accreditations = ["ISO certified", "NITA accredited", "SGS certified"];
+export type Accreditation = { slug: string; label: string };
+
+export const accreditations: Accreditation[] = [
+  { slug: "iso", label: "ISO 9001:2015 certified" },
+  { slug: "nita", label: "NITA approved trainer" },
+  { slug: "sgs", label: "SGS certified" },
+  { slug: "ict-authority", label: "ICT Authority registered" },
+  { slug: "csk", label: "Computer Society of Kenya" },
+];
 
 export type ProcessStep = { step: string; title: string; description: string };
 
@@ -116,11 +200,34 @@ export const engagementSteps: ProcessStep[] = [
 ];
 
 export const clients = [
-  { name: "Kenya Airports Authority", url: "https://www.kaa.go.ke" },
-  { name: "Kenya Ports Authority Pension Scheme", url: "https://kpapension.co.ke" },
-  { name: "Sheria Sacco" },
-  { name: "Minet Group" },
-  { name: "Cosmopolitan Sacco", url: "https://www.cosmopolitansacco.com" },
+  {
+    slug: "kenya-airports-authority",
+    name: "Kenya Airports Authority",
+    url: "https://www.kaa.go.ke",
+  },
+  {
+    slug: "kenya-ports-authority-pension",
+    name: "Kenya Ports Authority Pension Scheme",
+    url: "https://kpapension.co.ke",
+  },
+  { slug: "sheria-sacco", name: "Sheria Sacco" },
+  { slug: "minet", name: "Minet Group" },
+  {
+    slug: "cosmopolitan-sacco",
+    name: "Cosmopolitan Sacco",
+    url: "https://www.cosmopolitansacco.com",
+  },
+  { slug: "rwanda-housing-authority", name: "Rwanda Housing Authority" },
+  {
+    slug: "uganda-registration-services-bureau",
+    name: "Uganda Registration Services Bureau",
+    url: "https://ursb.go.ug",
+  },
+  {
+    slug: "kenya-national-bureau-of-statistics",
+    name: "Kenya National Bureau of Statistics",
+    url: "https://www.knbs.or.ke",
+  },
 ];
 
 export const navigation = {
@@ -128,6 +235,7 @@ export const navigation = {
     { label: "Solutions", href: "/solutions" },
     { label: "Industries", href: "/industries" },
     { label: "Case Studies", href: "/case-studies" },
+    { label: "Partners", href: "/partners" },
     { label: "Blog", href: "/blog" },
     { label: "About", href: "/about" },
     { label: "Careers", href: "/careers" },

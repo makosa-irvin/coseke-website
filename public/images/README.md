@@ -1,14 +1,39 @@
 # Photography brief
 
 This site ships with original illustrations everywhere a photo would
-normally go, because no real photography was available at build time. Every
-one of those spots is wired up to display a real photo automatically the
-moment you add a correctly-named file here — **no code changes needed.**
+normally go, for anything real photography hasn't been supplied for yet.
+Every one of those spots is wired up to display a real photo automatically
+the moment a correctly-named file is added here — **no code changes
+needed.**
 
-How it works: components render a `<Photo src="/images/x.jpg" fallback={...} />`.
-If `public/images/x.jpg` doesn't exist (or fails to load), the illustration
+How it works: components render a `<Photo src="/images/x.png" fallback={...} />`.
+If `public/images/x.png` doesn't exist (or fails to load), the illustration
 shown in this table renders instead. Add the file with the exact name below,
 and the illustration is replaced automatically on next deploy.
+
+## Added ✅
+
+These are real, in place — sourced from actual Coseke accreditation
+certificates and partner/client logos, backgrounds cleaned up and cropped
+for consistent display.
+
+| File | Used on |
+|---|---|
+| `accreditation-iso.png`, `accreditation-nita.png`, `accreditation-sgs.png`, `accreditation-ict-authority.png`, `accreditation-csk.png` | Homepage trust section, About page |
+| `partner-logo-dell-emc.png`, `partner-logo-hpe.png`, `partner-logo-huawei-enterprise.png`, `partner-logo-netapp.png`, `partner-logo-veeam.png`, `partner-logo-cisco.png`, `partner-logo-bruynzeel.png` | `/partners`, homepage partner section |
+| `client-logo-sheria-sacco.png`, `client-logo-minet.png`, `client-logo-rwanda-housing-authority.png`, `client-logo-uganda-registration-services-bureau.png`, `client-logo-kenya-national-bureau-of-statistics.png` | Homepage client marquee, and (Sheria/Minet) their case study pages — the case study pages reuse this same file since the slugs match, rather than needing a separate photo |
+
+Still missing real logos, showing an initials-monogram fallback: **Kenya
+Airports Authority**, **Kenya Ports Authority Pension Scheme**, **Cosmopolitan
+Sacco**, and the three platform partners (**Hyland OnBase**, **Kodak
+Alaris**, **OnBoard by Passageways** — these are software platforms rather
+than hardware brands, so a wordmark logo may be harder to source; the
+monogram fallback is a reasonable permanent state for these if a clean logo
+file isn't available). Add `client-logo-<slug>.png` or
+`partner-logo-<slug>.png` (slugs are in `content/site.ts`) to fill any of
+these in.
+
+## Still needed ⬜
 
 | File to add | Used on | Recommended size | Brief |
 |---|---|---|---|
@@ -20,10 +45,9 @@ and the illustration is replaced automatically on next deploy.
 | `leadership-governance.jpg` | About page, Leadership section | 600×600px, square | Headshot for the Governance & Meetings practice lead. Same note as above. |
 | `leadership-systems.jpg` | About page, Leadership section | 600×600px, square | Headshot for the Business Systems practice lead. Same note as above. |
 | `leadership-infrastructure.jpg` | About page, Leadership section | 600×600px, square | Headshot for the Infrastructure & Support practice lead. Same note as above. |
-| `case-study-kenya-airports-authority.jpg` | `/case-studies/kenya-airports-authority` | 800×800px, square | Photo related to the KAA engagement, or the KAA client mark/logo (only with their permission to use it). |
-| `case-study-kenya-ports-authority-pension.jpg` | `/case-studies/kenya-ports-authority-pension` | 800×800px, square | Same as above, for the KPA Pension Scheme engagement. |
-| `case-study-sheria-sacco.jpg` | `/case-studies/sheria-sacco` | 800×800px, square | Same, for Sheria Sacco. |
-| `case-study-minet.jpg` | `/case-studies/minet` | 800×800px, square | Same, for Minet Group. |
+| `client-logo-kenya-airports-authority.png` | Homepage marquee, case study page | any, transparent PNG preferred | KAA's logo, if usable with their permission. |
+| `client-logo-kenya-ports-authority-pension.png` | Homepage marquee, case study page | any, transparent PNG preferred | KPA Pension Scheme's logo. |
+| `client-logo-cosmopolitan-sacco.png` | Homepage marquee | any, transparent PNG preferred | Cosmopolitan Sacco's logo. |
 
 ## Leadership photos specifically
 
@@ -37,20 +61,20 @@ headshot here together, once confirmed.
 
 ## Notes
 
-- **Client logos**: the current fallback renders each client's initials as a
-  plain text monogram rather than a fabricated logo, specifically because we
-  don't have rights to reproduce their actual marks. If you get permission
-  to use a client's real logo, that's a direct drop-in replacement for the
-  monogram — just add the file above.
-- **Format**: JPG or PNG both work. Keep individual files under ~500KB;
-  compress with something like `squoosh.app` or `imagemin` before adding.
+- **Format**: this project standardizes on transparent PNG for logos/marks
+  (so they sit cleanly on any background color) and JPG for photography.
+  Keep individual files under ~500KB; compress with something like
+  `squoosh.app` or `imagemin` before adding. If a logo comes in with a white
+  background baked in, either ask for a transparent version or crop/matte it
+  yourself before adding — a white rectangle will show as a visible seam
+  against this site's off-white background.
 - **The office map** (`/components/illustrations/region-map-illustration.tsx`)
   is an original diagram, not a photo — there's nothing to replace there
   unless you want a licensed map tile instead, which would need its own
   integration (e.g. Mapbox or Google Maps) rather than a static image.
-- **The hero illustration** on the homepage (the document-grid graphic) is
-  intentionally illustrative rather than photographic — it's the site's one
-  deliberate "brand moment" and works well as-is, but could be swapped for a
-  real photo of a records archive or scanning operation if you'd rather lead
-  with photography there. That would need a small code change (it's not
-  currently wired through the `<Photo>` fallback pattern), not just a file drop.
+- **The hero illustration** on the digitization solution page (the
+  document-grid graphic) is intentionally illustrative rather than
+  photographic and works well as-is, but could be swapped for a real photo
+  of a records archive or scanning operation. That would need a small code
+  change (it's not currently wired through the `<Photo>` fallback pattern),
+  not just a file drop.

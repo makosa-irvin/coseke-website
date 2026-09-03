@@ -70,7 +70,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
           <p className="text-paper/70 mt-5 max-w-xl">{study.summary}</p>
           <div className="mt-8">
             <Photo
-              src={`/images/case-study-${study.slug}.jpg`}
+              src={`/images/client-logo-${study.slug}.png`}
               alt={study.client}
               fallback={<ClientMarkFallback name={study.client} />}
               className="border-paper/20 h-16 w-16 border object-cover"
