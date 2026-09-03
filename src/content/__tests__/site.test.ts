@@ -83,6 +83,19 @@ describe("partners, clients, and accreditations data integrity", () => {
     }
   });
 
+  it("every client has a valid country and non-empty name", () => {
+    const validCountries = new Set(["Kenya", "Uganda", "Tanzania", "Rwanda"]);
+    for (const client of clients) {
+      expect(validCountries.has(client.country)).toBe(true);
+      expect(client.name.length).toBeGreaterThan(0);
+    }
+  });
+
+  it("has clients from every country the company operates in", () => {
+    const countries = new Set(clients.map((c) => c.country));
+    expect(countries).toEqual(new Set(["Kenya", "Uganda", "Tanzania", "Rwanda"]));
+  });
+
   it("every accreditation has a unique slug", () => {
     const slugs = accreditations.map((a) => a.slug);
     expect(new Set(slugs).size).toBe(slugs.length);

@@ -199,35 +199,103 @@ export const engagementSteps: ProcessStep[] = [
   },
 ];
 
-export const clients = [
+export type Client = {
+  slug: string;
+  name: string;
+  country: "Kenya" | "Uganda" | "Tanzania" | "Rwanda";
+  url?: string;
+};
+
+export const clients: Client[] = [
+  // Kenya
   {
     slug: "kenya-airports-authority",
     name: "Kenya Airports Authority",
+    country: "Kenya",
     url: "https://www.kaa.go.ke",
+  },
+  {
+    slug: "kenya-ports-authority",
+    name: "Kenya Ports Authority",
+    country: "Kenya",
+    url: "https://www.kpa.co.ke",
   },
   {
     slug: "kenya-ports-authority-pension",
     name: "Kenya Ports Authority Pension Scheme",
+    country: "Kenya",
     url: "https://kpapension.co.ke",
   },
-  { slug: "sheria-sacco", name: "Sheria Sacco" },
-  { slug: "minet", name: "Minet Group" },
+  { slug: "sheria-sacco", name: "Sheria Sacco", country: "Kenya" },
   {
     slug: "cosmopolitan-sacco",
     name: "Cosmopolitan Sacco",
+    country: "Kenya",
     url: "https://www.cosmopolitansacco.com",
-  },
-  { slug: "rwanda-housing-authority", name: "Rwanda Housing Authority" },
-  {
-    slug: "uganda-registration-services-bureau",
-    name: "Uganda Registration Services Bureau",
-    url: "https://ursb.go.ug",
   },
   {
     slug: "kenya-national-bureau-of-statistics",
     name: "Kenya National Bureau of Statistics",
+    country: "Kenya",
     url: "https://www.knbs.or.ke",
   },
+  { slug: "usiu-africa", name: "USIU-Africa", country: "Kenya", url: "https://www.usiu.ac.ke" },
+  {
+    slug: "epra",
+    name: "Energy & Petroleum Regulatory Authority",
+    country: "Kenya",
+    url: "https://www.epra.go.ke",
+  },
+  { slug: "aar-insurance", name: "AAR Insurance", country: "Kenya" },
+  { slug: "total-kenya", name: "Total Kenya", country: "Kenya" },
+  { slug: "kma", name: "Kenya Maritime Authority", country: "Kenya" },
+  { slug: "bank-of-africa", name: "Bank of Africa", country: "Kenya" },
+  { slug: "cic-group", name: "CIC Insurance Group", country: "Kenya" },
+  { slug: "sanlam", name: "Sanlam", country: "Kenya" },
+  {
+    slug: "kenya-judiciary",
+    name: "The Judiciary of Kenya",
+    country: "Kenya",
+    url: "https://www.judiciary.go.ke",
+  },
+  { slug: "ministry-of-lands", name: "Ministry of Lands & Physical Planning", country: "Kenya" },
+  // Exact county not confirmed from the source image — correct this once known.
+  { slug: "county-government", name: "County Government", country: "Kenya" },
+  { slug: "minet", name: "Minet Group", country: "Kenya" },
+
+  // Uganda
+  {
+    slug: "uganda-registration-services-bureau",
+    name: "Uganda Registration Services Bureau",
+    country: "Uganda",
+    url: "https://ursb.go.ug",
+  },
+  { slug: "uganda-government", name: "Government of Uganda", country: "Uganda" },
+  { slug: "mengo-hospital", name: "Mengo Hospital", country: "Uganda" },
+  { slug: "unoc", name: "Uganda National Oil Company", country: "Uganda" },
+  {
+    slug: "makerere-university",
+    name: "Makerere University",
+    country: "Uganda",
+    url: "https://www.mak.ac.ug",
+  },
+  {
+    slug: "ura",
+    name: "Uganda Revenue Authority",
+    country: "Uganda",
+    url: "https://www.ura.go.ug",
+  },
+
+  // Tanzania
+  { slug: "ewura", name: "Energy and Water Utilities Regulatory Authority", country: "Tanzania" },
+  { slug: "songas", name: "Songas", country: "Tanzania" },
+  { slug: "latra", name: "Land Transport Regulatory Authority", country: "Tanzania" },
+  { slug: "tasac", name: "Tanzania Shipping Agencies Corporation", country: "Tanzania" },
+  { slug: "jkci", name: "Jakaya Kikwete Cardiac Institute", country: "Tanzania" },
+  { slug: "nhif-tanzania", name: "National Health Insurance Fund (Tanzania)", country: "Tanzania" },
+
+  // Rwanda
+  { slug: "rwanda-housing-authority", name: "Rwanda Housing Authority", country: "Rwanda" },
 ];
 
 export const navigation = {

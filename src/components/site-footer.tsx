@@ -15,7 +15,10 @@ export function SiteFooter() {
     <footer className="border-line-dark bg-indigo-deep text-paper/90 border-t">
       <Container className="grid gap-12 py-16 lg:grid-cols-[1.2fr_1fr_1.6fr]">
         <div>
-          <p className="font-display text-paper text-2xl font-semibold">Coseke</p>
+          <span className="mb-4 inline-block bg-white p-2">
+            {/* eslint-disable-next-line @next/next/no-img-element -- small static brand asset, not worth next/image overhead here */}
+            <img src="/images/coseke-logo.png" alt="Coseke" className="h-10 w-auto" />
+          </span>
           <p className="text-paper/70 mt-3 max-w-xs text-sm leading-relaxed">
             {siteConfig.description}
           </p>

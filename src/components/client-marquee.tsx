@@ -8,7 +8,7 @@ function ClientLogo({ client, hidden }: { client: (typeof clients)[number]; hidd
       src={`/images/client-logo-${client.slug}.png`}
       alt={hidden ? "" : client.name}
       fallback={<ClientMarkFallback name={client.name} />}
-      className="h-12 w-auto max-w-[9rem] object-contain"
+      className="h-16 w-auto max-w-[11rem] object-contain"
     />
   );
   if (hidden) {
@@ -53,7 +53,7 @@ export function ClientMarquee() {
       {/* Animated, looping strip (decorative — real content is in the sr-only
           list above) — hidden entirely when the viewer prefers reduced motion */}
       <div aria-hidden="true" className="overflow-hidden motion-reduce:hidden">
-        <div className="animate-marquee flex w-max items-center gap-16">
+        <div className="animate-marquee flex w-max items-center gap-14">
           {[...clients, ...clients].map((client, i) => (
             <div key={`${client.slug}-${i}`} className="flex shrink-0 items-center">
               <ClientLogo client={client} hidden />
@@ -65,7 +65,7 @@ export function ClientMarquee() {
       {/* Static wrapped fallback for reduced motion — also decorative */}
       <ul
         aria-hidden="true"
-        className="hidden flex-wrap items-center gap-x-10 gap-y-6 motion-reduce:flex"
+        className="hidden flex-wrap items-center gap-x-10 gap-y-8 motion-reduce:flex"
       >
         {clients.map((client) => (
           <li key={client.slug}>

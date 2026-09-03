@@ -13,25 +13,30 @@ and the illustration is replaced automatically on next deploy.
 
 ## Added ✅
 
-These are real, in place — sourced from actual Coseke accreditation
-certificates and partner/client logos, backgrounds cleaned up and cropped
-for consistent display.
+Real, in place — sourced from actual Coseke accreditation certificates,
+partner logos, and client logos, backgrounds cleaned up (flood-filled to
+transparent from the border only, so whitespace enclosed inside the artwork
+itself was left alone) and cropped for consistent display.
 
-| File | Used on |
-|---|---|
-| `accreditation-iso.png`, `accreditation-nita.png`, `accreditation-sgs.png`, `accreditation-ict-authority.png`, `accreditation-csk.png` | Homepage trust section, About page |
-| `partner-logo-dell-emc.png`, `partner-logo-hpe.png`, `partner-logo-huawei-enterprise.png`, `partner-logo-netapp.png`, `partner-logo-veeam.png`, `partner-logo-cisco.png`, `partner-logo-bruynzeel.png` | `/partners`, homepage partner section |
-| `client-logo-sheria-sacco.png`, `client-logo-minet.png`, `client-logo-rwanda-housing-authority.png`, `client-logo-uganda-registration-services-bureau.png`, `client-logo-kenya-national-bureau-of-statistics.png` | Homepage client marquee, and (Sheria/Minet) their case study pages — the case study pages reuse this same file since the slugs match, rather than needing a separate photo |
+- **The Coseke company logo** (`coseke-logo.png`) — used in the footer, in a
+  white chip, since the logo's black wordmark needs a light background to
+  read against the site's navy.
+- **All 5 accreditations**: ISO, NITA, SGS, ICT Authority, Computer Society
+  of Kenya.
+- **All 10 partners**, including the three platform partners (Hyland,
+  Kodak Alaris, OnBoard) that previously only had an initials-monogram
+  fallback.
+- **31 real clients** across Kenya, Uganda, Tanzania, and Rwanda — see
+  `content/site.ts` for the full list with `country` set on each. This grew
+  substantially from the original handful; most now have real logos, a few
+  still fall back to initials (below).
 
-Still missing real logos, showing an initials-monogram fallback: **Kenya
-Airports Authority**, **Kenya Ports Authority Pension Scheme**, **Cosmopolitan
-Sacco**, and the three platform partners (**Hyland OnBase**, **Kodak
-Alaris**, **OnBoard by Passageways** — these are software platforms rather
-than hardware brands, so a wordmark logo may be harder to source; the
-monogram fallback is a reasonable permanent state for these if a clean logo
-file isn't available). Add `client-logo-<slug>.png` or
-`partner-logo-<slug>.png` (slugs are in `content/site.ts`) to fill any of
-these in.
+Still showing an initials-monogram fallback, no logo file received yet:
+`ministry-of-lands` and `county-government` (Kenya). The `county-government`
+entry's exact county isn't confirmed either — see the comment above it in
+`content/site.ts`. Add `client-logo-<slug>.png` (slugs are in
+`content/site.ts`) to fill either in, and correct the county's name in the
+same file once known.
 
 ## Still needed ⬜
 
@@ -45,9 +50,6 @@ these in.
 | `leadership-governance.jpg` | About page, Leadership section | 600×600px, square | Headshot for the Governance & Meetings practice lead. Same note as above. |
 | `leadership-systems.jpg` | About page, Leadership section | 600×600px, square | Headshot for the Business Systems practice lead. Same note as above. |
 | `leadership-infrastructure.jpg` | About page, Leadership section | 600×600px, square | Headshot for the Infrastructure & Support practice lead. Same note as above. |
-| `client-logo-kenya-airports-authority.png` | Homepage marquee, case study page | any, transparent PNG preferred | KAA's logo, if usable with their permission. |
-| `client-logo-kenya-ports-authority-pension.png` | Homepage marquee, case study page | any, transparent PNG preferred | KPA Pension Scheme's logo. |
-| `client-logo-cosmopolitan-sacco.png` | Homepage marquee | any, transparent PNG preferred | Cosmopolitan Sacco's logo. |
 
 ## Leadership photos specifically
 
