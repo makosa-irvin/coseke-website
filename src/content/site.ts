@@ -1,3 +1,30 @@
+const DEFAULT_SITE_URL = "https://www.coseke.com";
+
+/**
+ * Resolves NEXT_PUBLIC_SITE_URL defensively. A bare `?? default` only
+ * guards against the variable being unset — if it's set to an empty
+ * string (a common state for a variable added in a hosting dashboard but
+ * left blank) or something that isn't a well-formed absolute URL, that
+ * silently propagates into `new URL(...)` calls (metadataBase in
+ * layout.tsx, in particular) and crashes the entire production build
+ * with an opaque "Failed to collect configuration for /_not-found"
+ * error. Validate and fall back instead of trusting the env var blindly.
+ */
+export function resolveSiteUrl(): string {
+  const envUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (!envUrl) return DEFAULT_SITE_URL;
+  try {
+    new URL(envUrl);
+    return envUrl;
+  } catch {
+    console.warn(
+      `NEXT_PUBLIC_SITE_URL is set to "${envUrl}", which isn't a valid absolute URL. ` +
+        `Falling back to ${DEFAULT_SITE_URL}. Set it to a full URL including the protocol, e.g. https://www.coseke.com.`,
+    );
+    return DEFAULT_SITE_URL;
+  }
+}
+
 export const siteConfig = {
   name: "Coseke",
   legalName: "Coseke Limited",
@@ -5,7 +32,7 @@ export const siteConfig = {
   tagline: "Information and content management, built for how East Africa works",
   description:
     "Coseke is a Pan-African information and content management specialist. Since 1990 we've helped government and private-sector organizations capture, manage, share, and preserve their records, replacing paper backlogs with searchable, governed systems.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.coseke.com",
+  url: resolveSiteUrl(),
   motto: "Quality means no compromise",
   supportUrl: "https://support.coseke.com",
 };
